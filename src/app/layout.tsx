@@ -1,55 +1,68 @@
-import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Sora, Manrope } from "next/font/google";
 import "./globals.css";
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const sora = Sora({
+  variable: "--font-sora",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
   display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cpoxiuricasanchez.com"),
+  metadataBase: new URL("https://masmarketingagency.com"),
   title: {
     default:
-      "Consultorio Popular Odontológico — Dra. Xiurica Sánchez · San Fernando de Apure",
-    template: "%s | Consultorio Popular Odontológico",
+      "MAS Marketing Agency — Páginas Web, Marketing Digital y Branding",
+    template: "%s | MAS Marketing Agency",
   },
   description:
-    "Consultorio Popular Odontológico de la Dra. Xiurica Sánchez en San Fernando de Apure. Ortodoncia, estética dental, prótesis, endodoncia, limpieza, blanqueamiento, extracciones y rayos X. Agenda por WhatsApp.",
+    "Agencia de marketing digital especializada en creación de páginas web, campañas de Meta y Google Ads, SEO, branding y redes sociales. Convertimos visitas en clientes.",
   keywords: [
-    "odontología",
-    "dentista",
-    "ortodoncia",
-    "Consultorio Popular Odontológico",
-    "San Fernando de Apure",
-    "Xiurica Sánchez",
-    "limpieza dental",
-    "brackets",
-    "blanqueamiento",
-    "prótesis",
-    "endodoncia",
-    "Apure",
-    "Venezuela",
+    "agencia de marketing",
+    "creación de páginas web",
+    "diseño web Venezuela",
+    "marketing digital",
+    "Meta Ads",
+    "Google Ads",
+    "SEO",
+    "branding",
+    "redes sociales",
+    "MAS Marketing Agency",
   ],
-  authors: [
-    { name: "Consultorio Popular Odontológico · Dra. Xiurica Sánchez" },
-  ],
+  authors: [{ name: "MAS Marketing Agency" }],
+  creator: "MAS Marketing Agency",
   openGraph: {
-    title:
-      "Consultorio Popular Odontológico — Dra. Xiurica Sánchez",
+    title: "MAS Marketing Agency — Marketing que convierte. Webs que venden.",
     description:
-      "Sonrisas sanas, cuidado cercano en San Fernando de Apure. Agenda tu consulta por WhatsApp.",
+      "Creamos páginas web, campañas y marcas que generan resultados medibles para empresas que quieren crecer.",
     locale: "es_VE",
     type: "website",
+    siteName: "MAS Marketing Agency",
   },
-  robots: { index: true, follow: true },
+  twitter: {
+    card: "summary_large_image",
+    title: "MAS Marketing Agency",
+    description:
+      "Páginas web, publicidad digital, SEO y branding para marcas que quieren crecer.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#060606",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({
@@ -58,7 +71,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${fraunces.variable} ${manrope.variable} h-full antialiased`}
+      className={`${sora.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full">{children}</body>
     </html>

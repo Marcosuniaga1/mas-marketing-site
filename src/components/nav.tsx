@@ -1,15 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, MessageCircle } from "lucide-react";
-import { WHATSAPP_URL, BRAND } from "@/lib/utils";
+import Image from "next/image";
+import { Menu, X, ArrowUpRight } from "lucide-react";
+import { WHATSAPP_URL, BRAND, INSTAGRAM_URL } from "@/lib/utils";
+import { InstagramIcon } from "./icons";
 
 const LINKS = [
   { href: "#servicios", label: "Servicios" },
-  { href: "#sobre-mi", label: "Sobre la doctora" },
-  { href: "#galeria", label: "Casos reales" },
-  { href: "#testimonios", label: "Testimonios" },
-  { href: "#ubicacion", label: "Ubicación" },
+  { href: "#local", label: "Negocios locales" },
+  { href: "#proceso", label: "Proceso" },
+  { href: "#casos", label: "Casos" },
+  { href: "#contacto", label: "Contacto" },
 ];
 
 export function Nav() {
@@ -23,93 +25,139 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  return (
-    <header
-      className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/85 backdrop-blur-md border-b border-border/60"
-          : "bg-transparent"
-      }`}
-    >
-      <nav
-        className="mx-auto max-w-7xl flex items-center justify-between px-5 sm:px-8 py-4"
-        aria-label="Navegación principal"
-      >
-        <a href="#inicio" className="flex items-center gap-2.5 group">
-          <span
-            aria-hidden="true"
-            className="grid h-9 w-9 place-items-center rounded-full bg-primary text-primary-foreground font-display text-lg font-semibold"
-          >
-            C
-          </span>
-          <span className="flex flex-col leading-tight">
-            <span className="font-display text-[14px] sm:text-[15px] font-semibold tracking-tight text-foreground">
-              {BRAND.name}
-            </span>
-            <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
-              {BRAND.doctor}
-            </span>
-          </span>
-        </a>
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
-        <ul className="hidden lg:flex items-center gap-1 text-sm">
-          {LINKS.map((l) => (
-            <li key={l.href}>
+  return (
+    <>
+      <header
+        className={`fixed top-0 inset-x-0 z-40 transition-all duration-500 ${
+          scrolled
+            ? "backdrop-blur-xl bg-[#060606]/80 border-b border-[var(--border)]"
+            : "bg-transparent border-b border-transparent"
+        }`}
+      >
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 h-[68px] flex items-center justify-between">
+          <a
+            href="#top"
+            className="group flex items-center gap-2.5"
+            aria-label={`${BRAND.name} · ir al inicio`}
+          >
+            <span
+              aria-hidden="true"
+              className="relative grid h-12 w-12 place-items-center rounded-full overflow-hidden border border-[var(--gold)]/40 bg-black transition-all duration-500 group-hover:border-[var(--gold)] group-hover:shadow-[0_0_0_4px_var(--gold-soft)]"
+            >
+              <Image
+                src="/logo.png"
+                alt=""
+                width={48}
+                height={48}
+                priority
+                className="h-full w-full object-cover"
+              />
+            </span>
+            <span className="font-[var(--font-sora)] font-bold tracking-tight text-[15px] sm:text-base">
+              {BRAND.short}
+              <span className="text-[var(--gold)]"> marketing</span>
+            </span>
+          </a>
+
+          <nav
+            className="hidden md:flex items-center gap-7 text-sm text-[var(--muted-foreground)]"
+            aria-label="Navegación principal"
+          >
+            {LINKS.map((l) => (
               <a
+                key={l.href}
                 href={l.href}
-                className="px-3 py-2 rounded-full text-foreground/80 hover:text-foreground hover:bg-muted transition"
+                className="link-animated hover:text-white transition-colors"
               >
                 {l.label}
               </a>
-            </li>
-          ))}
-        </ul>
+            ))}
+          </nav>
 
-        <div className="flex items-center gap-2">
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-4 sm:px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-[0_6px_20px_-8px_rgba(13,127,122,0.6)] hover:bg-primary-hover transition"
-            aria-label="Agendar cita por WhatsApp"
-          >
-            <MessageCircle size={16} strokeWidth={2.25} aria-hidden="true" />
-            <span className="hidden sm:inline">Agendar por WhatsApp</span>
-            <span className="sm:hidden">Agendar</span>
-          </a>
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram de MAS Marketing Agency"
+              className="grid h-9 w-9 place-items-center rounded-full border border-[var(--border-strong)] text-[var(--muted-foreground)] hover:text-white hover:border-[var(--gold)]/60 transition-all"
+            >
+              <InstagramIcon className="h-4 w-4" />
+            </a>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="gold-shine group inline-flex items-center gap-2 rounded-full bg-[var(--gold)] px-5 py-2.5 text-black font-semibold text-sm hover:bg-[var(--gold-bright)] transition-colors"
+            >
+              Hablemos
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+          </div>
+
           <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls="mobile-menu"
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
-            className="lg:hidden grid h-10 w-10 place-items-center rounded-full border border-border bg-card text-foreground hover:bg-muted transition"
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="md:hidden grid h-10 w-10 place-items-center rounded-full border border-[var(--border-strong)] text-white"
           >
-            {open ? <X size={18} /> : <Menu size={18} />}
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
-      </nav>
+      </header>
 
       {open && (
         <div
-          id="mobile-menu"
-          className="lg:hidden border-t border-border bg-background"
+          className="fixed inset-0 z-30 md:hidden bg-[#040404]/95 backdrop-blur-xl pt-[68px]"
+          role="dialog"
+          aria-modal="true"
         >
-          <ul className="mx-auto max-w-7xl px-5 py-4 flex flex-col gap-1">
-            {LINKS.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="block px-3 py-3 rounded-lg text-foreground/90 hover:bg-muted transition"
-                >
-                  {l.label}
-                </a>
-              </li>
+          <div className="px-6 py-8 flex flex-col gap-2">
+            {LINKS.map((l, i) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="reveal text-3xl font-[var(--font-sora)] font-semibold text-white py-3 border-b border-[var(--border)]"
+                style={{ animationDelay: `${i * 60}ms` }}
+              >
+                {l.label}
+              </a>
             ))}
-          </ul>
+            <div className="flex items-center gap-3 mt-8">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-[var(--gold)] px-6 py-3.5 text-black font-semibold"
+              >
+                Hablemos por WhatsApp
+              </a>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="grid h-12 w-12 place-items-center rounded-full border border-[var(--border-strong)] text-white"
+              >
+                <InstagramIcon className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

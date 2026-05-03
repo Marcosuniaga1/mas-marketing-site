@@ -2,12 +2,14 @@ import { Nav } from "@/components/nav";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import {
   Hero,
+  TrustStrip,
   Services,
-  About,
-  Gallery,
+  AuditLocal,
+  Benefits,
+  Process,
+  Cases,
   Testimonials,
-  InstagramFeed,
-  Location,
+  FAQ,
   Contact,
   Footer,
 } from "@/components/sections";
@@ -18,12 +20,14 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <TrustStrip />
         <Services />
-        <About />
-        <Gallery />
+        <AuditLocal />
+        <Benefits />
+        <Process />
+        <Cases />
         <Testimonials />
-        <InstagramFeed />
-        <Location />
+        <FAQ />
         <Contact />
       </main>
       <Footer />
@@ -33,31 +37,32 @@ export default function Home() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Dentist",
-            name: "Consultorio Popular Odontológico",
-            alternateName: "Consultorio Popular Odontológico — Dra. Xiurica Sánchez",
+            "@type": "ProfessionalService",
+            name: "MAS Marketing Agency",
             description:
-              "Consultorio odontológico dirigido por la Dra. Xiurica Sánchez en San Fernando de Apure. Ortodoncia, estética dental, prótesis, endodoncia, limpieza, blanqueamiento, extracciones y rayos X periapicales.",
-            telephone: "+58 414-486-2906",
+              "Agencia de marketing digital especializada en creación de páginas web, publicidad digital, SEO, branding y gestión de redes sociales.",
+            url: "https://masmarketingagency.com",
+            telephone: "+58 412 999 1787",
             address: {
               "@type": "PostalAddress",
-              streetAddress:
-                "Calle Muñoz entre Calle Plaza y Calle Palo Fuerte, detrás de la Panadería Zaimar, Plaza Negro Primero",
-              addressLocality: "San Fernando de Apure",
-              addressRegion: "Apure",
               addressCountry: "VE",
+              addressLocality: "Venezuela",
             },
-            openingHours: [
-              "Mo-Fr 09:00-12:00",
-              "Mo-Fr 14:00-17:00",
-              "Sa 09:00-13:00",
-            ],
-            sameAs: ["https://www.instagram.com/cpoxiuricasanchez/"],
-            medicalSpecialty: [
-              "Orthodontics",
-              "CosmeticDentistry",
-              "Endodontics",
-              "Prosthodontics",
+            sameAs: ["https://www.instagram.com/mas.marketingagency/"],
+            areaServed: ["VE", "CO", "MX", "US", "ES", "PA"],
+            priceRange: "$$",
+            serviceType: [
+              "Web Design",
+              "Digital Marketing",
+              "SEO",
+              "Branding",
+              "Social Media Management",
+              "Paid Advertising",
+              "Email Marketing",
+              "Google My Business Optimization",
+              "Local Business Audit",
+              "Professional Photography",
+              "WhatsApp Catalog Design",
             ],
           }),
         }}
