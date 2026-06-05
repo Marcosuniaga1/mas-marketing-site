@@ -57,7 +57,7 @@ export function Nav() {
             >
               <Image
                 src="/logo.png"
-                alt=""
+                alt="MAS Marketing Agency"
                 width={48}
                 height={48}
                 priority

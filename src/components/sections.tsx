@@ -1051,7 +1051,7 @@ export function Testimonials() {
 /*                                     FAQ                                    */
 /* -------------------------------------------------------------------------- */
 
-const FAQS = [
+export const FAQS = [
   {
     q: "¿Cuánto tarda mi página web?",
     a: "Depende del alcance. Una landing entre 7 y 10 días, una página corporativa completa 14 a 21 días, y un e-commerce 21 a 35 días. Tendrás una primera versión para revisar antes del día 7.",
@@ -1393,7 +1393,7 @@ export function Footer() {
               <span className="relative grid h-14 w-14 place-items-center rounded-full overflow-hidden border border-[var(--gold)]/40 bg-black">
                 <Image
                   src="/logo.png"
-                  alt=""
+                  alt="MAS Marketing Agency"
                   width={56}
                   height={56}
                   className="h-full w-full object-cover"

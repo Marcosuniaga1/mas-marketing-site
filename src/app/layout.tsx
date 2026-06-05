@@ -24,7 +24,14 @@ export const metadata: Metadata = {
     template: "%s | MAS Marketing Agency",
   },
   description:
-    "Agencia de marketing digital especializada en creación de páginas web, campañas de Meta y Google Ads, SEO, branding y redes sociales. Convertimos visitas en clientes.",
+    "Agencia de marketing digital: páginas web, Meta y Google Ads, SEO, branding y redes sociales en LATAM y España. Convertimos visitas en clientes.",
+  alternates: {
+    canonical: "/",
+    languages: {
+      es: "https://masmarketingagency.com",
+      "x-default": "https://masmarketingagency.com",
+    },
+  },
   keywords: [
     "agencia de marketing",
     "creación de páginas web",

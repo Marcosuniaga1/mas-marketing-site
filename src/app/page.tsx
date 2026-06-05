@@ -12,6 +12,7 @@ import {
   FAQ,
   Contact,
   Footer,
+  FAQS,
 } from "@/components/sections";
 
 export default function Home() {
@@ -42,6 +43,8 @@ export default function Home() {
             description:
               "Agencia de marketing digital especializada en creación de páginas web, publicidad digital, SEO, branding y gestión de redes sociales.",
             url: "https://masmarketingagency.com",
+            logo: "https://masmarketingagency.com/logo.png",
+            image: "https://masmarketingagency.com/logo.png",
             telephone: "+58 412 999 1787",
             address: {
               "@type": "PostalAddress",
@@ -64,6 +67,20 @@ export default function Home() {
               "Professional Photography",
               "WhatsApp Catalog Design",
             ],
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: FAQS.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
           }),
         }}
       />
