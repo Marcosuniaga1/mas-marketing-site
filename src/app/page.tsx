@@ -12,8 +12,8 @@ import {
   FAQ,
   Contact,
   Footer,
-  FAQS,
 } from "@/components/sections";
+import { FAQS } from "@/components/faqs";
 
 export default function Home() {
   return (
