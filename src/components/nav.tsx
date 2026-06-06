@@ -2,14 +2,25 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, ChevronDown } from "lucide-react";
 import { WHATSAPP_URL, BRAND, INSTAGRAM_URL } from "@/lib/utils";
 import { InstagramIcon } from "./icons";
 
-const LINKS = [
-  { href: "/#servicios", label: "Servicios" },
-  { href: "/agentes-whatsapp", label: "Agentes WhatsApp" },
-  { href: "/#local", label: "Negocios locales" },
+type NavLink = { href: string; label: string };
+type NavItem =
+  | NavLink
+  | { label: string; href?: string; children: NavLink[] };
+
+const LINKS: NavItem[] = [
+  {
+    label: "Servicios",
+    href: "/#servicios",
+    children: [
+      { href: "/agentes-whatsapp", label: "Agentes WhatsApp" },
+      { href: "/emprendedores-360", label: "Emprendedores 360" },
+      { href: "/#local", label: "Negocios locales" },
+    ],
+  },
   { href: "/#proceso", label: "Proceso" },
   { href: "/#casos", label: "Casos" },
   { href: "/sobre-nosotros", label: "Sobre nosotros" },
@@ -76,15 +87,52 @@ export function Nav() {
             className="hidden md:flex items-center gap-7 text-sm text-[var(--muted-foreground)]"
             aria-label="Navegación principal"
           >
-            {LINKS.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className="link-animated hover:text-white transition-colors"
-              >
-                {l.label}
-              </a>
-            ))}
+            {LINKS.map((l) => {
+              if ("children" in l) {
+                return (
+                  <div
+                    key={l.label}
+                    className="group relative"
+                  >
+                    <a
+                      href={l.href ?? "#"}
+                      className="link-animated inline-flex items-center gap-1 hover:text-white transition-colors"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      {l.label}
+                      <ChevronDown className="h-3.5 w-3.5 text-[var(--gold)] transition-transform duration-300 group-hover:rotate-180 group-focus-within:rotate-180" />
+                    </a>
+                    <div
+                      className="invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 absolute left-1/2 -translate-x-1/2 top-full pt-3 transition-all duration-200 z-50"
+                      role="menu"
+                    >
+                      <div className="min-w-[240px] rounded-2xl border border-[var(--border-strong)] bg-[#0a0a0a]/95 backdrop-blur-xl shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)] p-2">
+                        {l.children.map((c) => (
+                          <a
+                            key={c.href}
+                            href={c.href}
+                            role="menuitem"
+                            className="block px-4 py-3 rounded-xl text-sm text-[var(--muted-foreground)] hover:bg-[var(--gold-soft)] hover:text-white focus-visible:bg-[var(--gold-soft)] focus-visible:text-white outline-none transition-colors"
+                          >
+                            {c.label}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+              return (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  className="link-animated hover:text-white transition-colors"
+                >
+                  {l.label}
+                </a>
+              );
+            })}
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
@@ -126,17 +174,45 @@ export function Nav() {
           aria-modal="true"
         >
           <div className="px-6 py-8 flex flex-col gap-2">
-            {LINKS.map((l, i) => (
-              <a
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="reveal text-3xl font-[var(--font-sora)] font-semibold text-white py-3 border-b border-[var(--border)]"
-                style={{ animationDelay: `${i * 60}ms` }}
-              >
-                {l.label}
-              </a>
-            ))}
+            {LINKS.map((l, i) => {
+              if ("children" in l) {
+                return (
+                  <details
+                    key={l.label}
+                    className="group reveal py-3 border-b border-[var(--border)]"
+                    style={{ animationDelay: `${i * 60}ms` }}
+                  >
+                    <summary className="flex items-center justify-between gap-3 cursor-pointer list-none [&::-webkit-details-marker]:hidden text-3xl font-[var(--font-sora)] font-semibold text-white">
+                      {l.label}
+                      <ChevronDown className="h-6 w-6 text-[var(--gold)] transition-transform duration-300 group-open:rotate-180" />
+                    </summary>
+                    <div className="mt-4 pl-4 flex flex-col gap-1 border-l border-[var(--gold)]/30">
+                      {l.children.map((c) => (
+                        <a
+                          key={c.href}
+                          href={c.href}
+                          onClick={() => setOpen(false)}
+                          className="text-lg text-[var(--muted-foreground)] hover:text-white py-2 pl-4 transition-colors"
+                        >
+                          {c.label}
+                        </a>
+                      ))}
+                    </div>
+                  </details>
+                );
+              }
+              return (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="reveal text-3xl font-[var(--font-sora)] font-semibold text-white py-3 border-b border-[var(--border)]"
+                  style={{ animationDelay: `${i * 60}ms` }}
+                >
+                  {l.label}
+                </a>
+              );
+            })}
             <div className="flex items-center gap-3 mt-8">
               <a
                 href={WHATSAPP_URL}
