@@ -7,11 +7,12 @@ import { WHATSAPP_URL, BRAND, INSTAGRAM_URL } from "@/lib/utils";
 import { InstagramIcon } from "./icons";
 
 const LINKS = [
-  { href: "#servicios", label: "Servicios" },
-  { href: "#local", label: "Negocios locales" },
-  { href: "#proceso", label: "Proceso" },
-  { href: "#casos", label: "Casos" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "/#servicios", label: "Servicios" },
+  { href: "/#local", label: "Negocios locales" },
+  { href: "/#proceso", label: "Proceso" },
+  { href: "/#casos", label: "Casos" },
+  { href: "/sobre-nosotros", label: "Sobre nosotros" },
+  { href: "/#contacto", label: "Contacto" },
 ];
 
 export function Nav() {
