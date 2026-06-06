@@ -8,6 +8,7 @@ import { InstagramIcon } from "./icons";
 
 const LINKS = [
   { href: "/#servicios", label: "Servicios" },
+  { href: "/agentes-whatsapp", label: "Agentes WhatsApp" },
   { href: "/#local", label: "Negocios locales" },
   { href: "/#proceso", label: "Proceso" },
   { href: "/#casos", label: "Casos" },

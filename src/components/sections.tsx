@@ -2,6 +2,8 @@
 
 import { useState, useRef, type FormEvent } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import type { LucideIcon } from "lucide-react";
 import {
   ArrowUpRight,
   Code2,
@@ -305,7 +307,15 @@ export function TrustStrip() {
 /*                                  Services                                  */
 /* -------------------------------------------------------------------------- */
 
-const SERVICES = [
+type Service = {
+  icon: LucideIcon;
+  title: string;
+  desc: string;
+  tags: string[];
+  href?: string;
+};
+
+const SERVICES: Service[] = [
   {
     icon: Code2,
     title: "Páginas web",
@@ -341,6 +351,13 @@ const SERVICES = [
     title: "Email & automatización",
     desc: "Flujos que venden mientras duermes: bienvenida, recuperación de carrito, reactivación y newsletters.",
     tags: ["Klaviyo", "Mailchimp", "Flujos"],
+  },
+  {
+    icon: MessageCircle,
+    title: "Agentes de WhatsApp con IA",
+    desc: "Conversación humanizada 24/7. Tu negocio atiende, agenda y convierte mientras duermes.",
+    tags: ["IA", "24/7", "Conversacional"],
+    href: "/agentes-whatsapp",
   },
 ];
 
@@ -402,7 +419,7 @@ function ServiceCard({
   service,
   index,
 }: {
-  service: (typeof SERVICES)[number];
+  service: Service;
   index: number;
 }) {
   const Icon = service.icon;
@@ -419,9 +436,18 @@ function ServiceCard({
         <div className="grid h-11 w-11 place-items-center rounded-xl bg-[var(--gold-soft)] text-[var(--gold)]">
           <Icon className="h-5 w-5" />
         </div>
-        <span className="text-[11px] font-mono text-[var(--subtle-foreground)]">
-          0{index + 1}
-        </span>
+        {service.href ? (
+          <span
+            className="grid h-7 w-7 place-items-center rounded-full border border-[var(--border-strong)] text-[var(--gold)] group-hover:border-[var(--gold)] group-hover:bg-[var(--gold-soft)] transition-all"
+            aria-hidden="true"
+          >
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </span>
+        ) : (
+          <span className="text-[11px] font-mono text-[var(--subtle-foreground)]">
+            0{index + 1}
+          </span>
+        )}
       </div>
       <h3 className="relative mt-6 font-[var(--font-sora)] text-xl font-semibold text-white">
         {service.title}
@@ -439,6 +465,13 @@ function ServiceCard({
           </span>
         ))}
       </div>
+      {service.href && (
+        <Link
+          href={service.href}
+          aria-label={`Ver más sobre ${service.title}`}
+          className="absolute inset-0 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]"
+        />
+      )}
     </article>
   );
 }
