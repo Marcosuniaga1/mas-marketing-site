@@ -321,6 +321,7 @@ const SERVICES: Service[] = [
     title: "Páginas web",
     desc: "Landing, corporativa o tienda online. Rápidas, con SEO técnico y pensadas para convertir, no solo para verse bonitas.",
     tags: ["Next.js", "Shopify", "WordPress"],
+    href: "/paginas-web",
   },
   {
     icon: Megaphone,
