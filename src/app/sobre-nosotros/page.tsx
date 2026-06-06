@@ -98,17 +98,16 @@ export default function SobreNosotros() {
         >
           <div className="mx-auto max-w-5xl px-5 sm:px-8 grid gap-12 lg:grid-cols-[280px_1fr] lg:items-start">
             <div className="lg:sticky lg:top-32">
-              <div className="relative aspect-square w-full max-w-[280px] rounded-2xl border border-[var(--border-strong)] bg-gradient-to-br from-[var(--card)] to-black overflow-hidden">
-                <div className="absolute inset-0 grid place-items-center">
-                  <Image
-                    src="/logo.png"
-                    alt="Marco Suniaga — MAS Marketing Agency"
-                    width={140}
-                    height={140}
-                    className="opacity-90"
-                  />
-                </div>
-                <div className="absolute inset-0 ring-1 ring-inset ring-[var(--gold)]/20 rounded-2xl" />
+              <div className="relative aspect-[4/5] w-full max-w-[280px] rounded-2xl border border-[var(--border-strong)] overflow-hidden">
+                <Image
+                  src="/team/marco.jpg"
+                  alt="Marco Suniaga, Director de MAS Marketing Agency"
+                  width={400}
+                  height={500}
+                  className="object-cover rounded-lg w-full h-full"
+                  priority
+                />
+                <div className="absolute inset-0 ring-1 ring-inset ring-[var(--gold)]/20 rounded-2xl pointer-events-none" />
               </div>
 
               <div className="mt-6 space-y-1">
