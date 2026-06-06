@@ -53,12 +53,21 @@ export const metadata: Metadata = {
     locale: "es_VE",
     type: "website",
     siteName: "MAS Marketing Agency",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "MAS Marketing Agency — Marketing que convierte. Webs que venden.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "MAS Marketing Agency",
     description:
       "Páginas web, publicidad digital, SEO y branding para marcas que quieren crecer.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
