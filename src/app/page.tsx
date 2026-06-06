@@ -51,7 +51,11 @@ export default function Home() {
               addressCountry: "VE",
               addressLocality: "Venezuela",
             },
-            sameAs: ["https://www.instagram.com/mas.marketingagency/"],
+            sameAs: [
+              "https://www.instagram.com/mas.marketingagency/",
+              "https://www.linkedin.com/in/mas-marketing-agency/",
+              "https://www.facebook.com/proyectoida",
+            ],
             areaServed: ["VE", "CO", "MX", "US", "ES", "PA"],
             priceRange: "$$",
             serviceType: [
