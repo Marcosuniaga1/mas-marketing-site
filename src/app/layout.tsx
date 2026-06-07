@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Sora, Manrope } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
+
+const GA_MEASUREMENT_ID = "G-KWREZG4CSZ";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -92,7 +95,23 @@ export default function RootLayout({
       lang="es"
       className={`${sora.variable} ${manrope.variable} h-full antialiased`}
     >
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        {children}
+
+        {/* Google Analytics (GA4) */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
+      </body>
     </html>
   );
 }
