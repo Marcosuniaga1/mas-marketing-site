@@ -328,6 +328,7 @@ const SERVICES: Service[] = [
     title: "Publicidad digital",
     desc: "Campañas de Meta Ads y Google Ads con creativos, segmentación y reporte claro. Cada peso se mide.",
     tags: ["Meta Ads", "Google Ads", "TikTok"],
+    href: "/campanas-digitales",
   },
   {
     icon: Search,
