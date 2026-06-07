@@ -16,6 +16,7 @@ const LINKS: NavItem[] = [
     label: "Servicios",
     href: "/#servicios",
     children: [
+      { href: "/auditoria-gratuita", label: "Auditoría Gratuita" },
       { href: "/paginas-web", label: "Páginas Web" },
       { href: "/campanas-digitales", label: "Campañas Digitales" },
       { href: "/agentes-whatsapp", label: "Agentes WhatsApp" },
