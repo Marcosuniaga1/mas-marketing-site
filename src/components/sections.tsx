@@ -335,12 +335,14 @@ const SERVICES: Service[] = [
     title: "SEO & posicionamiento",
     desc: "Tráfico orgánico que no caduca. Auditoría técnica, contenido estratégico y autoridad de dominio real.",
     tags: ["On-page", "Link building", "Local SEO"],
+    href: "/seo-posicionamiento",
   },
   {
     icon: Palette,
     title: "Branding",
     desc: "Identidad visual, tono de voz y narrativa. Tu marca deja de parecerse a todas las demás.",
     tags: ["Logo", "Manual", "Rebranding"],
+    href: "/branding",
   },
   {
     icon: Share2,

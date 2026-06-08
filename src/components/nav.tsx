@@ -19,6 +19,8 @@ const LINKS: NavItem[] = [
       { href: "/auditoria-gratuita", label: "Auditoría Gratuita" },
       { href: "/paginas-web", label: "Páginas Web" },
       { href: "/campanas-digitales", label: "Campañas Digitales" },
+      { href: "/seo-posicionamiento", label: "SEO & Posicionamiento" },
+      { href: "/branding", label: "Branding" },
       { href: "/agentes-whatsapp", label: "Agentes WhatsApp" },
       { href: "/emprendedores-360", label: "Emprendedores 360" },
       { href: "/#local", label: "Negocios locales" },
