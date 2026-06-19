@@ -27,7 +27,7 @@ const LINKS: NavItem[] = [
     ],
   },
   { href: "/#proceso", label: "Proceso" },
-  { href: "/#casos", label: "Casos" },
+  { href: "/testimonios", label: "Testimonios" },
   { href: "/sobre-nosotros", label: "Sobre nosotros" },
   { href: "/#contacto", label: "Contacto" },
 ];

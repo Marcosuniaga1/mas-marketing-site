@@ -1447,8 +1447,7 @@ export function Footer() {
             title="Empresa"
             links={[
               { label: "Proceso", href: "#proceso" },
-              { label: "Casos", href: "#casos" },
-              { label: "Testimonios", href: "#testimonios" },
+              { label: "Testimonios", href: "/testimonios" },
               { label: "Contacto", href: "#contacto" },
             ]}
           />
