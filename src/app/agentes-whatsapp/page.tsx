@@ -23,6 +23,7 @@ import {
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/sections";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { WHATSAPP_NUMBER, BRAND } from "@/lib/utils";
 
 const WHATSAPP_CTA_MESSAGE =
@@ -464,6 +465,7 @@ export default function AgentesWhatsApp() {
       </main>
       <Footer />
       <WhatsAppFloat />
+      <BreadcrumbJsonLd pageName="Agentes WhatsApp" pageUrl="/agentes-whatsapp" />
 
       {/* --------------------- JSON-LD: Service ------------------------ */}
       <script

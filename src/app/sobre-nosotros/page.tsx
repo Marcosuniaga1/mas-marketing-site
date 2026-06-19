@@ -5,6 +5,7 @@ import { ArrowUpRight, MapPin, Sparkles } from "lucide-react";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/sections";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { BRAND, WHATSAPP_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -271,6 +272,7 @@ export default function SobreNosotros() {
       </main>
       <Footer />
       <WhatsAppFloat />
+      <BreadcrumbJsonLd pageName="Sobre Nosotros" pageUrl="/sobre-nosotros" />
 
       {/* ----------------------- JSON-LD: Person ----------------------- */}
       <script

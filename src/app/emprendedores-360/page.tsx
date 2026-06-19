@@ -28,6 +28,7 @@ import {
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/sections";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { WHATSAPP_NUMBER, BRAND } from "@/lib/utils";
 
 const WHATSAPP_CTA_MESSAGE =
@@ -537,6 +538,7 @@ export default function Emprendedores360() {
       </main>
       <Footer />
       <WhatsAppFloat />
+      <BreadcrumbJsonLd pageName="Emprendedores 360" pageUrl="/emprendedores-360" />
 
       {/* --------------------- JSON-LD: Service ------------------------ */}
       <script

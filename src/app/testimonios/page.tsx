@@ -6,6 +6,7 @@ import { Sparkles, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/sections";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { InstagramIcon } from "@/components/icons";
 
 const WA_CTA = "https://wa.me/584129991787?text=Hola%20MAS%2C%20quiero%20empezar%20mi%20proyecto";
@@ -35,13 +36,13 @@ const TESTIMONIALS = [
     photo: "/testimonios/yasmin.jpg",
     instagram: "https://www.instagram.com/yasminperdomop/",
     quote:
-      "La Agencia Mas Marketing Agency dirigida por Marco Suniaga me ha dado acompañamiento personalizado para el lanzamiento de mis cursos. Yo tengo un libro escrito, Empresarias en tacones, de allí se desprenden una serie de servicios, mentorías, talleres y cursos. Pero de tantas ideas que tengo, me sentía abrumada. Marco me ha hecho aterrizar estas ideas y convertirlas en productos y servicios claros, desde la idea inicial hasta la entrega final a mis clientes. Ya tengo mis 5 lecciones del Low Ticket y mi producto High Ticket listos. Yo solo grabo mis clases y ellos se encargan del resto. Me siento muy contenta con su programa Emprendedores 360.",
+      "Excelente experiencia con Mas Marketing Agency. Después de escribir mi libro Empresarias en Tacones, tenía muchas ideas de cursos, mentorías y talleres, pero no lograba estructurarlas. Marco Suniaga me ayudó a aterrizar cada idea y convertirla en productos y servicios claros, con una estrategia bien definida.\n\nLo que más valoro de su programa Emprendedores 360 es el acompañamiento personalizado y la claridad que aporta en todo el proceso. Hoy yo me enfoco en crear y grabar mis clases, mientras todo el recorrido de mis programas tiene una estructura profesional.\n\nSi eres emprendedor y quieres organizar y escalar tu oferta de servicios, lo recomiendo totalmente.",
   },
 ];
 
 export const metadata: Metadata = {
   title:
-    "Testimonios — Resultados Reales de Nuestros Clientes | MAS Marketing Agency",
+    "Testimonios — Resultados Reales de Nuestros Clientes",
   description:
     "Conoce los testimonios de emprendedores y profesionales que confiaron en MAS Marketing Agency. Resultados reales con Emprendedores 360, diseño web y campañas digitales.",
   alternates: { canonical: "/testimonios" },
@@ -142,8 +143,14 @@ export default function Testimonios() {
                     </div>
                   </div>
 
-                  <blockquote className="mt-6 flex-1 text-sm text-[var(--muted-foreground)] leading-relaxed italic">
-                    &ldquo;{t.quote}&rdquo;
+                  <blockquote className="mt-6 flex-1 text-sm text-[var(--muted-foreground)] leading-relaxed italic space-y-3">
+                    {t.quote.split("\n\n").map((p, i, arr) => (
+                      <p key={i}>
+                        {i === 0 && "“"}
+                        {p}
+                        {i === arr.length - 1 && "”"}
+                      </p>
+                    ))}
                   </blockquote>
 
                   <a
@@ -252,6 +259,7 @@ export default function Testimonios() {
       </main>
       <Footer />
       <WhatsAppFloat />
+      <BreadcrumbJsonLd pageName="Testimonios" pageUrl="/testimonios" />
 
       <Script
         src="https://www.instagram.com/embed.js"

@@ -28,6 +28,7 @@ import {
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/sections";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { WHATSAPP_NUMBER, BRAND } from "@/lib/utils";
 
 const WHATSAPP_CTA_MESSAGE =
@@ -40,7 +41,7 @@ const ORG_ID = "https://masmarketingagency.com/#organization";
 
 export const metadata: Metadata = {
   title:
-    "Branding e Identidad de Marca — Logo, Manual y Posicionamiento | MAS Marketing Agency",
+    "Branding e Identidad de Marca — Logo, Manual y Posicionamiento",
   description:
     "Servicio de branding e identidad de marca en LATAM, España y EE.UU. Naming, logo profesional, manual de marca, buyer persona, elevator pitch y posicionamiento estratégico. Diagnóstico inicial gratuito.",
   alternates: { canonical: "/branding" },
@@ -467,6 +468,7 @@ export default function Branding() {
       </main>
       <Footer />
       <WhatsAppFloat />
+      <BreadcrumbJsonLd pageName="Branding" pageUrl="/branding" />
 
       {/* --------------------- JSON-LD: Service ------------------------ */}
       <script

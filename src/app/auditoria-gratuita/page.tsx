@@ -21,6 +21,7 @@ import {
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/sections";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { WHATSAPP_NUMBER, BRAND } from "@/lib/utils";
 
 const WHATSAPP_CTA_MESSAGE =
@@ -33,7 +34,7 @@ const ORG_ID = "https://masmarketingagency.com/#organization";
 
 export const metadata: Metadata = {
   title:
-    "Auditoría Digital Gratuita — Descubre por qué tu negocio no vende online | MAS Marketing Agency",
+    "Auditoría Digital Gratuita — Descubre por qué tu negocio no vende online",
   description:
     "Auditoría digital gratuita para negocios en LATAM, España y EE.UU. Analizamos página web, redes sociales, publicidad y SEO — y te entregamos un plan de acción concreto. Sin costo. Sin compromiso.",
   alternates: { canonical: "/auditoria-gratuita" },
@@ -428,6 +429,7 @@ export default function AuditoriaGratuita() {
       </main>
       <Footer />
       <WhatsAppFloat />
+      <BreadcrumbJsonLd pageName="Auditoría Gratuita" pageUrl="/auditoria-gratuita" />
 
       {/* --------------------- JSON-LD: Service ------------------------ */}
       <script

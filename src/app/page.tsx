@@ -39,17 +39,29 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
+            "@id": "https://masmarketingagency.com/#organization",
             name: "MAS Marketing Agency",
             description:
               "Agencia de marketing digital especializada en creación de páginas web, publicidad digital, SEO, branding y gestión de redes sociales.",
             url: "https://masmarketingagency.com",
-            logo: "https://masmarketingagency.com/logo.png",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://masmarketingagency.com/logo.png",
+              width: 512,
+              height: 512,
+            },
             image: "https://masmarketingagency.com/logo.png",
-            telephone: "+58 412 999 1787",
+            telephone: "+584129991787",
             address: {
               "@type": "PostalAddress",
               addressCountry: "VE",
-              addressLocality: "Venezuela",
+              addressLocality: "Caracas",
+              addressRegion: "Distrito Capital",
+            },
+            founder: {
+              "@type": "Person",
+              name: "Marco Suniaga",
+              url: "https://masmarketingagency.com/sobre-nosotros",
             },
             sameAs: [
               "https://www.instagram.com/mas.marketingagency/",
@@ -58,6 +70,12 @@ export default function Home() {
             ],
             areaServed: ["VE", "CO", "MX", "US", "ES", "PA"],
             priceRange: "$$",
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: "5",
+              reviewCount: "3",
+              bestRating: "5",
+            },
             serviceType: [
               "Web Design",
               "Digital Marketing",

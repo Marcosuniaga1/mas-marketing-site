@@ -33,6 +33,7 @@ import {
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/sections";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { WHATSAPP_NUMBER, BRAND } from "@/lib/utils";
 import { MetaIcon, GoogleIcon } from "@/components/icons";
 
@@ -46,7 +47,7 @@ const ORG_ID = "https://masmarketingagency.com/#organization";
 
 export const metadata: Metadata = {
   title:
-    "Campañas Digitales Meta Ads & Google Ads — Gestión profesional desde $50 | MAS Marketing Agency",
+    "Campañas Digitales Meta Ads & Google Ads — Gestión profesional desde $50",
   description:
     "Gestión completa de campañas publicitarias en Facebook, Instagram y Google Ads. Estrategia, creativos, optimización y reportes mensuales para negocios en LATAM. Honorario desde $50 USD.",
   alternates: { canonical: "/campanas-digitales" },
@@ -514,6 +515,7 @@ export default function CampanasDigitales() {
       </main>
       <Footer />
       <WhatsAppFloat />
+      <BreadcrumbJsonLd pageName="Campañas Digitales" pageUrl="/campanas-digitales" />
 
       {/* --------------------- JSON-LD: Service ------------------------ */}
       <script

@@ -21,6 +21,7 @@ import {
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/sections";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { WHATSAPP_NUMBER, BRAND } from "@/lib/utils";
 
 const WHATSAPP_CTA_MESSAGE =
@@ -33,7 +34,7 @@ const ORG_ID = "https://masmarketingagency.com/#organization";
 
 export const metadata: Metadata = {
   title:
-    "SEO y Posicionamiento en Google e IA — Aparece Primero | MAS Marketing Agency",
+    "SEO y Posicionamiento en Google e IA — Aparece Primero",
   description:
     "Servicios de SEO y visibilidad en IA para negocios en LATAM, España y EE.UU. Optimización técnica, contenido, autoridad de dominio y aparición en ChatGPT, Perplexity y Google AI Overviews.",
   alternates: { canonical: "/seo-posicionamiento" },
@@ -512,6 +513,7 @@ export default function SeoPosicionamiento() {
       </main>
       <Footer />
       <WhatsAppFloat />
+      <BreadcrumbJsonLd pageName="SEO y Posicionamiento" pageUrl="/seo-posicionamiento" />
 
       {/* --------------------- JSON-LD: Service ------------------------ */}
       <script

@@ -30,6 +30,7 @@ import {
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/sections";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { WHATSAPP_NUMBER, BRAND } from "@/lib/utils";
 
 const WHATSAPP_CTA_MESSAGE =
@@ -42,7 +43,7 @@ const ORG_ID = "https://masmarketingagency.com/#organization";
 
 export const metadata: Metadata = {
   title:
-    "Páginas Web Profesionales desde $180 — Entrega en 5 días | MAS Marketing Agency",
+    "Páginas Web Profesionales desde $180 — Entrega en 5 días",
   description:
     "Páginas web profesionales a medida desde $180 USD. Landing, corporativa, e-commerce y páginas para emprendedores. Entrega en 5 días hábiles. Servicio en LATAM, España y EE.UU.",
   alternates: { canonical: "/paginas-web" },
@@ -464,6 +465,7 @@ export default function PaginasWeb() {
       </main>
       <Footer />
       <WhatsAppFloat />
+      <BreadcrumbJsonLd pageName="Páginas Web" pageUrl="/paginas-web" />
 
       {/* --------------------- JSON-LD: Service ------------------------ */}
       <script
