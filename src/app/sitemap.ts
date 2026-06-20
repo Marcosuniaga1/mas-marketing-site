@@ -1,9 +1,18 @@
 import type { MetadataRoute } from "next";
+import { getAllPosts } from "@/lib/blog";
 
 const base = "https://masmarketingagency.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
+
+  const blogPosts = getAllPosts().map((post) => ({
+    url: `${base}/blog/${post.slug}`,
+    lastModified: new Date(post.date + "T12:00:00"),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
   return [
     { url: `${base}/`, lastModified: now, changeFrequency: "weekly", priority: 1.0 },
     { url: `${base}/paginas-web`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
@@ -15,6 +24,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/emprendedores-360`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/sobre-nosotros`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/testimonios`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${base}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    ...blogPosts,
     { url: `${base}/politica-de-privacidad`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${base}/eliminacion-de-datos`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
   ];

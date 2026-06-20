@@ -7,7 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export const WHATSAPP_NUMBER = "584129991787";
 export const WHATSAPP_MESSAGE =
-  "Quiero más información sobre creación de páginas web";
+  "Hola, quiero más información sobre los servicios de MAS Marketing Agency.";
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   WHATSAPP_MESSAGE
 )}`;
