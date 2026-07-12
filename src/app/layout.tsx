@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Sora, Manrope } from "next/font/google";
 import Script from "next/script";
+import { CustomCursor } from "@/components/custom-cursor";
+import { ScrollProgress } from "@/components/scroll-progress";
 import "./globals.css";
 
 const GA_MEASUREMENT_ID = "G-KWREZG4CSZ";
@@ -83,7 +85,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#060606",
+  themeColor: "#080E24",
   colorScheme: "dark",
 };
 
@@ -96,6 +98,8 @@ export default function RootLayout({
       className={`${sora.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full">
+        <CustomCursor />
+        <ScrollProgress />
         {children}
 
         {/* Google Analytics (GA4) */}

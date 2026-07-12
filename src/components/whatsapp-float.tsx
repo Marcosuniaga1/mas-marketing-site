@@ -110,17 +110,17 @@ export function WhatsAppFloat() {
       {/* Chat panel */}
       {open && (
         <div
-          className="fixed z-50 bottom-24 right-4 sm:right-6 w-[min(92vw,360px)] origin-bottom-right rounded-2xl border border-[var(--border-strong)] bg-[#0b0b0b] shadow-[0_30px_80px_-12px_rgba(0,0,0,0.85)] overflow-hidden flex flex-col reveal"
+          className="fixed z-50 bottom-24 right-4 sm:right-6 w-[min(92vw,360px)] origin-bottom-right rounded-2xl border border-[var(--border-strong)] bg-[#0a1128] shadow-[0_30px_80px_-12px_rgba(0,0,0,0.85)] overflow-hidden flex flex-col reveal"
           role="dialog"
           aria-label="Chat con el equipo de MAS"
         >
-          <div className="relative px-4 py-4 bg-gradient-to-br from-[#1a1a1a] to-[#0b0b0b] border-b border-[var(--border)] flex items-center gap-3">
+          <div className="relative px-4 py-4 bg-gradient-to-br from-[#111a35] to-[#0a1128] border-b border-[var(--border)] flex items-center gap-3">
             <div className="relative">
               <div className="grid h-10 w-10 place-items-center rounded-full bg-[var(--gold)] text-black font-[var(--font-sora)] font-bold">
                 M
               </div>
               <span
-                className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full bg-[#25d366] ring-2 ring-[#0b0b0b]"
+                className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full bg-[#25d366] ring-2 ring-[#0a1128]"
                 aria-label="En línea"
               />
             </div>
@@ -143,7 +143,7 @@ export function WhatsAppFloat() {
 
           <div
             id="chat-scroll"
-            className="thin-scroll flex-1 max-h-[380px] overflow-y-auto px-4 py-5 space-y-3 bg-[#080808]"
+            className="thin-scroll flex-1 max-h-[380px] overflow-y-auto px-4 py-5 space-y-3 bg-[#080E24]"
           >
             {messages.map((m, i) => (
               <div
@@ -222,7 +222,7 @@ export function WhatsAppFloat() {
                 e.preventDefault();
                 handleName();
               }}
-              className="border-t border-[var(--border)] bg-[#0b0b0b] p-3 flex items-center gap-2"
+              className="border-t border-[var(--border)] bg-[#0a1128] p-3 flex items-center gap-2"
             >
               <input
                 value={input}
@@ -241,7 +241,7 @@ export function WhatsAppFloat() {
             </form>
           )}
 
-          <div className="border-t border-[var(--border)] bg-[#060606] px-4 py-2.5 text-[10px] text-[var(--subtle-foreground)] flex items-center justify-between">
+          <div className="border-t border-[var(--border)] bg-[#080E24] px-4 py-2.5 text-[10px] text-[var(--subtle-foreground)] flex items-center justify-between">
             <span>Chat · MAS Marketing Agency</span>
             <span className="text-[var(--gold)]">Seguro & privado</span>
           </div>

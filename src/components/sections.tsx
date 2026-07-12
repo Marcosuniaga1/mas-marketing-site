@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, type FormEvent } from "react";
+import { useState, useRef, useEffect, type FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
@@ -38,6 +38,62 @@ import {
   whatsappLinkWith,
 } from "@/lib/utils";
 import { InstagramIcon } from "./icons";
+import { NeuralBg } from "./neural-bg";
+import { ScrollReveal } from "./scroll-reveal";
+
+/* -------------------------------------------------------------------------- */
+/*                             useInView hook                                 */
+/* -------------------------------------------------------------------------- */
+
+function useInView(threshold = 0.3) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [threshold]);
+
+  return { ref, inView };
+}
+
+/* -------------------------------------------------------------------------- */
+/*                            useCounter hook                                 */
+/* -------------------------------------------------------------------------- */
+
+function useCounter(end: number, duration = 1500, start = false) {
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if (!start) return;
+    let raf: number;
+    const t0 = performance.now();
+
+    const tick = (now: number) => {
+      const elapsed = now - t0;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setValue(Math.round(eased * end));
+      if (progress < 1) raf = requestAnimationFrame(tick);
+    };
+
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [end, duration, start]);
+
+  return value;
+}
 
 /* -------------------------------------------------------------------------- */
 /*                                    Hero                                    */
@@ -49,6 +105,7 @@ export function Hero() {
       id="top"
       className="relative hero-bg grain overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32"
     >
+      <NeuralBg className="absolute inset-0 w-full h-full opacity-[0.12] pointer-events-none" />
       <div className="bg-grid absolute inset-0 pointer-events-none" aria-hidden="true" />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
@@ -73,7 +130,7 @@ export function Hero() {
               style={{ animationDelay: "80ms" }}
             >
               Marketing que{" "}
-              <span className="text-gold-gradient">convierte</span>.
+              <span className="gold-shimmer">convierte</span>.
               <br />
               Webs que{" "}
               <span className="italic font-[var(--font-sora)] font-light text-white/90">
@@ -112,14 +169,7 @@ export function Hero() {
               </a>
             </div>
 
-            <div
-              className="reveal mt-12 grid grid-cols-3 gap-6 sm:gap-10 max-w-lg"
-              style={{ animationDelay: "380ms" }}
-            >
-              <HeroStat value="+50" label="Proyectos entregados" />
-              <HeroStat value="4.8×" label="ROAS promedio" />
-              <HeroStat value="7-21d" label="Tiempo de entrega" />
-            </div>
+            <HeroMetrics />
           </div>
 
           <div
@@ -134,14 +184,42 @@ export function Hero() {
   );
 }
 
-function HeroStat({ value, label }: { value: string; label: string }) {
+function HeroMetrics() {
+  const { ref, inView } = useInView(0.5);
+  const projects = useCounter(50, 1500, inView);
+  const roas = useCounter(48, 1500, inView);
+  const daysLow = useCounter(7, 1200, inView);
+  const daysHigh = useCounter(21, 1500, inView);
+
   return (
-    <div>
-      <div className="font-[var(--font-sora)] text-2xl sm:text-3xl font-bold text-white">
-        {value}
+    <div
+      ref={ref}
+      className="reveal mt-12 grid grid-cols-3 gap-6 sm:gap-10 max-w-lg"
+      style={{ animationDelay: "380ms" }}
+    >
+      <div>
+        <div className="font-[var(--font-sora)] text-2xl sm:text-3xl font-bold text-white">
+          +{projects}
+        </div>
+        <div className="mt-1 text-xs sm:text-sm text-[var(--subtle-foreground)] leading-tight">
+          Proyectos entregados
+        </div>
       </div>
-      <div className="mt-1 text-xs sm:text-sm text-[var(--subtle-foreground)] leading-tight">
-        {label}
+      <div>
+        <div className="font-[var(--font-sora)] text-2xl sm:text-3xl font-bold text-white">
+          {(roas / 10).toFixed(1)}×
+        </div>
+        <div className="mt-1 text-xs sm:text-sm text-[var(--subtle-foreground)] leading-tight">
+          ROAS promedio
+        </div>
+      </div>
+      <div>
+        <div className="font-[var(--font-sora)] text-2xl sm:text-3xl font-bold text-white">
+          {daysLow}-{daysHigh}d
+        </div>
+        <div className="mt-1 text-xs sm:text-sm text-[var(--subtle-foreground)] leading-tight">
+          Tiempo de entrega
+        </div>
       </div>
     </div>
   );
@@ -154,7 +232,7 @@ function HeroVisual() {
       <div className="absolute inset-0 translate-x-6 translate-y-6 rounded-2xl border border-[var(--border-strong)] bg-[var(--card)]/70 backdrop-blur-sm" />
 
       {/* Front card (browser mock) */}
-      <div className="absolute inset-0 rounded-2xl border border-[var(--border-strong)] bg-gradient-to-br from-[#141414] to-[#0a0a0a] overflow-hidden shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)]">
+      <div className="absolute inset-0 rounded-2xl border border-[var(--border-strong)] bg-gradient-to-br from-[#111a35] to-[#080E24] overflow-hidden shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)]">
         <div className="flex items-center gap-1.5 px-4 py-3 border-b border-[var(--border)]">
           <span className="h-2.5 w-2.5 rounded-full bg-[#3a3a3a]" />
           <span className="h-2.5 w-2.5 rounded-full bg-[#3a3a3a]" />
@@ -199,7 +277,7 @@ function HeroVisual() {
       </div>
 
       {/* Floating badge */}
-      <div className="absolute -left-4 sm:-left-6 top-10 rounded-xl border border-[var(--border-strong)] bg-[#0c0c0c] px-3.5 py-2.5 shadow-[0_12px_30px_-10px_rgba(0,0,0,0.8)]">
+      <div className="absolute -left-4 sm:-left-6 top-10 rounded-xl border border-[var(--border-strong)] bg-[#0a1128] px-3.5 py-2.5 shadow-[0_12px_30px_-10px_rgba(0,0,0,0.8)]">
         <div className="flex items-center gap-2">
           <div className="grid h-7 w-7 place-items-center rounded-full bg-[var(--gold-soft)] text-[var(--gold)]">
             <Sparkles className="h-3.5 w-3.5" />
@@ -383,11 +461,11 @@ export function Services() {
           description="Un solo equipo que entiende marca, web y publicidad. Menos reuniones entre proveedores y más resultados que mostrar."
         />
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <ScrollReveal className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {SERVICES.map((s, i) => (
             <ServiceCard key={s.title} service={s} index={i} />
           ))}
-        </div>
+        </ScrollReveal>
 
         <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 sm:p-8">
           <div>
@@ -429,7 +507,7 @@ function ServiceCard({
   const Icon = service.icon;
   return (
     <article
-      className="group relative rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 sm:p-7 hover:border-[var(--gold)]/40 hover:bg-[var(--card-hover)] transition-all duration-500 overflow-hidden"
+      className="service-card group relative rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 sm:p-7 hover:border-[var(--gold)]/40 hover:bg-[var(--card-hover)] overflow-hidden"
       style={{ animationDelay: `${index * 70}ms` }}
     >
       <div
@@ -575,7 +653,7 @@ export function AuditLocal() {
         />
 
         {/* Featured Audit Card */}
-        <div className="mt-14">
+        <ScrollReveal className="mt-14">
           <div className="relative rounded-3xl border border-[var(--gold)]/30 bg-gradient-to-br from-[var(--gold-soft)] via-[var(--card)] to-[var(--card)] p-8 sm:p-12 overflow-hidden">
             <div
               className="absolute top-0 right-0 h-64 w-64 rounded-full bg-[var(--gold)] opacity-10 blur-3xl"
@@ -642,7 +720,7 @@ export function AuditLocal() {
               </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Sub-services grid */}
         <div className="mt-16">
@@ -660,11 +738,11 @@ export function AuditLocal() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <ScrollReveal className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {LOCAL_SERVICES.map((s, i) => (
               <LocalServiceCard key={s.title} service={s} index={i} />
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
@@ -873,7 +951,7 @@ export function Process() {
           description="Trabajamos con un método probado. Nada queda al aire, nada se improvisa. Siempre sabes en qué fase estamos."
         />
 
-        <ol className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-4">
+        <ScrollReveal className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-4">
           {PROCESS.map((p, i) => (
             <li
               key={p.step}
@@ -901,7 +979,7 @@ export function Process() {
               </p>
             </li>
           ))}
-        </ol>
+        </ScrollReveal>
       </div>
     </section>
   );
@@ -966,14 +1044,14 @@ export function Cases() {
           </a>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
+        <ScrollReveal className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
           {CASES.map((c, i) => (
             <article
               key={c.client}
               className="group rounded-2xl border border-[var(--border)] bg-[var(--card)] overflow-hidden hover:border-[var(--gold)]/40 transition-all"
             >
               <div
-                className="relative h-48 bg-gradient-to-br from-[#1a1a1a] via-[#101010] to-black overflow-hidden"
+                className="relative h-48 bg-gradient-to-br from-[#111a35] via-[#0a1128] to-[#080E24] overflow-hidden"
                 aria-hidden="true"
               >
                 <div className="absolute inset-0 bg-grid opacity-50" />
@@ -1005,7 +1083,7 @@ export function Cases() {
               </div>
             </article>
           ))}
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
@@ -1054,7 +1132,7 @@ export function Testimonials() {
           description="Nada habla mejor que alguien que ha puesto su negocio en nuestras manos."
         />
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
+        <ScrollReveal className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
           {TESTIMONIALS.map((t) => (
             <figure
               key={t.name}
@@ -1079,7 +1157,7 @@ export function Testimonials() {
               </figcaption>
             </figure>
           ))}
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

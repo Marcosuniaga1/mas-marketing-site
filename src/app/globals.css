@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #060606;
-  --surface: #0c0c0c;
-  --surface-2: #121212;
-  --card: #141414;
-  --card-hover: #181818;
-  --border: #1f1f1f;
-  --border-strong: #2a2a2a;
+  --background: #080E24;
+  --surface: #0a1128;
+  --surface-2: #0f1730;
+  --card: #111a35;
+  --card-hover: #152040;
+  --border: #1a2545;
+  --border-strong: #243055;
   --foreground: #f5f5f5;
   --muted-foreground: #a3a3a3;
   --subtle-foreground: #6b6b6b;
@@ -65,7 +65,7 @@ body {
 
 ::selection {
   background: var(--gold);
-  color: #0a0a0a;
+  color: #080E24;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -85,7 +85,7 @@ body {
   background:
     radial-gradient(ellipse 60% 50% at 80% 10%, rgba(212, 175, 55, 0.14), transparent 60%),
     radial-gradient(ellipse 50% 40% at 10% 80%, rgba(212, 175, 55, 0.08), transparent 60%),
-    linear-gradient(180deg, #050505 0%, #080808 60%, #050505 100%);
+    linear-gradient(180deg, #070c20 0%, #080E24 60%, #070c20 100%);
 }
 
 .bg-grid {
@@ -142,6 +142,44 @@ body {
   color: transparent;
 }
 
+@keyframes gold-shimmer {
+  0%, 85%, 100% { background-position: -200% center; }
+  50% { background-position: 200% center; }
+}
+.gold-shimmer {
+  background: linear-gradient(
+    120deg,
+    #e9c76a 0%, #d4af37 20%, #a8821d 40%,
+    #f5e6a3 48%, #fff5d4 50%, #f5e6a3 52%,
+    #a8821d 60%, #d4af37 80%, #e9c76a 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gold-shimmer 4s ease-in-out infinite;
+}
+
+/* ─── Scroll progress bar ─── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--gold);
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.5), 0 0 3px rgba(212, 175, 55, 0.3);
+  z-index: 9999;
+  transform-origin: left;
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* ─── Custom cursor ─── */
+.custom-cursor-active,
+.custom-cursor-active * {
+  cursor: none !important;
+}
+
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -170,7 +208,7 @@ body {
 .thin-scroll::-webkit-scrollbar { width: 6px; }
 .thin-scroll::-webkit-scrollbar-track { background: transparent; }
 .thin-scroll::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
+  background: #243055;
   border-radius: 9999px;
 }
 
@@ -197,6 +235,22 @@ body {
 
 input, textarea, select {
   color-scheme: dark;
+}
+
+/* ─── Blog: dot-grid background ─── */
+/* ─── Roadmap landing: blue theme ─── */
+.roadmap-hero-bg {
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 10%, rgba(59, 130, 246, 0.12), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(59, 130, 246, 0.06), transparent 60%),
+    linear-gradient(180deg, #070c20 0%, #080E24 60%, #070c20 100%);
+}
+
+.roadmap-blue-gradient {
+  background: linear-gradient(120deg, #60a5fa 0%, #3b82f6 45%, #2563eb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* ─── Blog: dot-grid background ─── */
@@ -248,6 +302,34 @@ input, textarea, select {
 .blog-card:hover {
   border-color: rgba(212, 175, 55, 0.20);
   box-shadow: 0 0 30px -10px rgba(212, 175, 55, 0.10);
+}
+
+/* ─── Service card: gold border hover ─── */
+.service-card {
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 0.84, 0.35, 1), border-color 0.4s, background-color 0.5s;
+}
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.35), rgba(212, 175, 55, 0.08) 50%, rgba(212, 175, 55, 0.25));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+.service-card:hover::before {
+  opacity: 1;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px -10px rgba(212, 175, 55, 0.12);
 }
 
 /* ─── Blog: prose styles ─── */

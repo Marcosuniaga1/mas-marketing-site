@@ -60,7 +60,7 @@ export function Nav() {
       <header
         className={`fixed top-0 inset-x-0 z-40 transition-all duration-500 ${
           scrolled
-            ? "backdrop-blur-xl bg-[#060606]/80 border-b border-[var(--border)]"
+            ? "backdrop-blur-xl bg-[#080E24]/80 border-b border-[var(--border)]"
             : "bg-transparent border-b border-transparent"
         }`}
       >
@@ -113,7 +113,7 @@ export function Nav() {
                       className="invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 absolute left-1/2 -translate-x-1/2 top-full pt-3 transition-all duration-200 z-50"
                       role="menu"
                     >
-                      <div className="min-w-[240px] rounded-2xl border border-[var(--border-strong)] bg-[#0a0a0a]/95 backdrop-blur-xl shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)] p-2">
+                      <div className="min-w-[240px] rounded-2xl border border-[var(--border-strong)] bg-[#0a1128]/95 backdrop-blur-xl shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)] p-2">
                         {l.children.map((c) => (
                           <a
                             key={c.href}
@@ -175,7 +175,7 @@ export function Nav() {
 
       {open && (
         <div
-          className="fixed inset-0 z-30 md:hidden bg-[#040404]/95 backdrop-blur-xl pt-[68px]"
+          className="fixed inset-0 z-30 md:hidden bg-[#060b1e]/95 backdrop-blur-xl pt-[68px]"
           role="dialog"
           aria-modal="true"
         >
