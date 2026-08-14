@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Listo! Tu PDF te espera | Sulma Marte</title>
+  <meta name="description" content="Tu PDF con los 4 prompts para lanzar tu marca en redes te espera en el grupo de WhatsApp. Entra ahora.">
+  <meta property="og:title" content="¡Listo! Tu PDF te espera">
+  <meta property="og:description" content="Los 4 prompts para lanzar tu marca en redes estan en el grupo de WhatsApp.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --negro: #1A1A1A;
+      --blanco: #FFFFFF;
+      --crema: #FAF8F3;
+      --rosa: #C42472;
+      --rosa-hover: #A91D62;
+      --rosa-light: #FFF0F5;
+      --gris-osc: #3D3D3A;
+      --gris-m: #6B6B66;
+      --gris-l: #E8E5DF;
+      --verde-wa: #25D366;
+      --verde-wa-hover: #1DA851;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--gris-osc);
+      background-color: var(--blanco);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ── Layout ── */
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ── Header ── */
+
+    .site-header {
+      background: rgba(13,13,13,0.95);
+      backdrop-filter: blur(10px);
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(196,36,114,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .site-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-text {
+      font-size: 22px;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.03em;
+    }
+
+    .logo-accent {
+      color: #C42472;
+    }
+
+    .logo-tagline {
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-left: 1px solid rgba(255,255,255,0.15);
+      padding-left: 12px;
+    }
+
+    /* ── Section spacing ── */
+
+    .section {
+      padding: 64px 0;
+      position: relative;
+    }
+
+    .section--hero {
+      background: linear-gradient(135deg, #0D0D0D 0%, #1A1A1A 50%, #1A0D14 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 64px 0 80px;
+    }
+
+    .section--hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section--crema {
+      background-color: var(--crema);
+    }
+
+    .section--dark {
+      background-color: var(--negro);
+      color: var(--blanco);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ── Hero background ── */
+
+    .hero-bg-elements {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-bg-gradient {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(196,36,114,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(196,36,114,0.06) 0%, transparent 50%),
+        linear-gradient(135deg, #0D0D0D 0%, #1A1A1A 40%, #1A0D14 100%);
+    }
+
+    .hero-bg-svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: relative;
+    }
+
+    @keyframes node-pulse {
+      0%, 100% { opacity: 0.25; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    .node-pulse {
+      animation: node-pulse 3s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .network-nodes circle:nth-child(1) { animation-delay: 0s; }
+    .network-nodes circle:nth-child(3) { animation-delay: 0.8s; }
+    .network-nodes circle:nth-child(5) { animation-delay: 1.6s; }
+    .network-nodes circle:nth-child(10) { animation-delay: 0.4s; }
+
+    /* ── Section dividers ── */
+
+    .section-divider {
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--rosa), transparent);
+      border: none;
+      margin: 0;
+    }
+
+    /* ── Typography ── */
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #C42472;
+      background: rgba(196, 36, 114, 0.12);
+      border: 1px solid rgba(196, 36, 114, 0.3);
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+
+    .headline {
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--negro);
+      margin-bottom: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .subheadline {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--gris-m);
+      margin-bottom: 32px;
+      max-width: 560px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--negro);
+      margin-bottom: 44px;
+      letter-spacing: -0.01em;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    /* ── Hero content ── */
+
+    .hero-content {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section--hero .headline {
+      color: var(--blanco);
+      animation: fadeInUp 0.8s 0.3s ease both;
+    }
+
+    .section--hero .subheadline {
+      color: rgba(255,255,255,0.7);
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeInUp 0.8s 0.4s ease both;
+    }
+
+    .section--hero .eyebrow {
+      animation: fadeInUp 0.8s 0.2s ease both;
+    }
+
+    /* ── Success icon ── */
+
+    @keyframes check-appear {
+      0% { transform: scale(0) rotate(-10deg); opacity: 0; }
+      60% { transform: scale(1.15) rotate(3deg); }
+      100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    }
+
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #C42472, #9B1D5A);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      animation: check-appear 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+      box-shadow: 0 8px 32px rgba(196,36,114,0.4);
+    }
+
+    .success-icon svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    /* ── WhatsApp button ── */
+
+    @keyframes pulse-green {
+      0%, 100% { box-shadow: 0 8px 32px rgba(37,211,102,0.4); }
+      50% { box-shadow: 0 8px 48px rgba(37,211,102,0.7); }
+    }
+
+    .btn-whatsapp {
+      animation: pulse-green 2.5s ease-in-out infinite;
+      background: linear-gradient(135deg, #25D366, #1DA851);
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+      text-decoration: none;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 18px;
+      padding: 18px 48px;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+      animation-delay: 0.5s;
+      animation-fill-mode: both;
+    }
+
+    .btn-whatsapp:hover {
+      animation: none;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(37,211,102,0.5);
+    }
+
+    .btn-whatsapp:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    .btn-whatsapp:focus-visible {
+      outline: 2px solid var(--verde-wa);
+      outline-offset: 2px;
+    }
+
+    .btn-wrapper {
+      animation: fadeInUp 0.8s 0.5s ease both;
+    }
+
+    .micro-copy {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 16px;
+    }
+
+    /* ── Benefits cards ── */
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .benefit-card {
+      background: var(--blanco);
+      border: 1px solid var(--gris-l);
+      border-radius: 16px;
+      padding: 32px 28px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #C42472, #9B1D5A);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(196,36,114,0.12);
+      border-color: rgba(196,36,114,0.2);
+    }
+
+    .benefit-card:hover::before {
+      opacity: 1;
+    }
+
+    .benefit-card__icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .benefit-card__title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--negro);
+      margin-bottom: 8px;
+    }
+
+    .benefit-card__text {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--gris-m);
+    }
+
+    /* ── Urgency section ── */
+
+    .cta-glow {
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(37, 211, 102, 0.1);
+      filter: blur(80px);
+      pointer-events: none;
+    }
+
+    .urgency-content {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .urgency-content .headline {
+      color: var(--blanco);
+      margin-bottom: 12px;
+    }
+
+    .urgency-content .subheadline {
+      color: rgba(255,255,255,0.7);
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 36px;
+    }
+
+    /* ── Footer ── */
+
+    .footer {
+      background-color: var(--negro);
+      padding: 24px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .disclaimer {
+      background: #111111;
+      padding: 16px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .disclaimer p {
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* ── Animations ── */
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* ── Responsive ── */
+
+    @media (min-width: 768px) {
+      .section {
+        padding: 80px 0;
+      }
+
+      .section--hero {
+        padding: 80px 0 96px;
+      }
+
+      .container {
+        padding: 0 32px;
+      }
+
+      .headline {
+        font-size: 38px;
+      }
+
+      .subheadline {
+        font-size: 18px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 24px;
+      }
+
+      .success-icon {
+        width: 96px;
+        height: 96px;
+      }
+
+      .success-icon svg {
+        width: 42px;
+        height: 42px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .section {
+        padding: 96px 0;
+      }
+
+      .section--hero {
+        padding: 96px 0 112px;
+      }
+
+      .headline {
+        font-size: 52px;
+      }
+
+      .section-title {
+        font-size: 32px;
+      }
+
+      .cta-glow {
+        width: 400px;
+        height: 400px;
+      }
+    }
+
+    /* ── Focus visible ── */
+
+    *:focus-visible {
+      outline: 2px solid var(--rosa);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================== -->
+  <!-- HEADER                         -->
+  <!-- ============================== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="site-logo">
+        <span class="logo-text">Sulma<span class="logo-accent">Marte</span></span>
+        <span class="logo-tagline">Asesora de Redes Sociales</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================== -->
+  <!-- HERO DE CONFIRMACION           -->
+  <!-- ============================== -->
+  <section class="section section--hero">
+    <div class="hero-bg-elements" aria-hidden="true">
+      <!-- Gradiente de fondo -->
+      <div class="hero-bg-gradient"></div>
+
+      <!-- Canvas de particulas tecnologicas -->
+      <svg class="hero-bg-svg" viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+
+        <!-- GRID TECNOLOGICO -->
+        <defs>
+          <pattern id="tech-grid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#C42472" stroke-width="0.3" opacity="0.08"/>
+          </pattern>
+          <radialGradient id="glow-center" cx="50%" cy="40%" r="50%">
+            <stop offset="0%" stop-color="#C42472" stop-opacity="0.08"/>
+            <stop offset="100%" stop-color="#C42472" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Grid base -->
+        <rect width="1400" height="900" fill="url(#tech-grid)"/>
+        <!-- Glow central -->
+        <rect width="1400" height="900" fill="url(#glow-center)"/>
+
+        <!-- NODOS DE RED NEURONAL -->
+        <g class="network-nodes">
+          <circle cx="120" cy="180" r="5" fill="#C42472" opacity="0.25" class="node-pulse"/>
+          <circle cx="320" cy="90" r="3" fill="#C42472" opacity="0.18"/>
+          <circle cx="520" cy="220" r="6" fill="#C42472" opacity="0.2" class="node-pulse"/>
+          <circle cx="750" cy="70" r="4" fill="#C42472" opacity="0.15"/>
+          <circle cx="950" cy="200" r="5" fill="#C42472" opacity="0.2" class="node-pulse"/>
+          <circle cx="1150" cy="120" r="3" fill="#C42472" opacity="0.15"/>
+          <circle cx="1300" cy="280" r="6" fill="#C42472" opacity="0.18"/>
+          <circle cx="180" cy="450" r="4" fill="#C42472" opacity="0.15"/>
+          <circle cx="420" cy="520" r="3" fill="#C42472" opacity="0.12"/>
+          <circle cx="680" cy="480" r="5" fill="#C42472" opacity="0.18" class="node-pulse"/>
+          <circle cx="880" cy="550" r="3" fill="#C42472" opacity="0.12"/>
+          <circle cx="1100" cy="420" r="4" fill="#C42472" opacity="0.15"/>
+          <circle cx="1350" cy="500" r="3" fill="#C42472" opacity="0.1"/>
+          <circle cx="230" cy="300" r="2" fill="#C42472" opacity="0.12"/>
+          <circle cx="600" cy="350" r="2" fill="#C42472" opacity="0.1"/>
+          <circle cx="820" cy="320" r="2" fill="#C42472" opacity="0.12"/>
+          <circle cx="1020" cy="380" r="2" fill="#C42472" opacity="0.1"/>
+        </g>
+
+        <!-- LINEAS DE CONEXION -->
+        <g opacity="0.12" stroke="#C42472" stroke-width="0.8" fill="none">
+          <line x1="120" y1="180" x2="320" y2="90"/>
+          <line x1="320" y1="90" x2="520" y2="220"/>
+          <line x1="520" y1="220" x2="750" y2="70"/>
+          <line x1="750" y1="70" x2="950" y2="200"/>
+          <line x1="950" y1="200" x2="1150" y2="120"/>
+          <line x1="1150" y1="120" x2="1300" y2="280"/>
+          <line x1="120" y1="180" x2="180" y2="450"/>
+          <line x1="180" y1="450" x2="420" y2="520"/>
+          <line x1="420" y1="520" x2="680" y2="480"/>
+          <line x1="680" y1="480" x2="880" y2="550"/>
+          <line x1="880" y1="550" x2="1100" y2="420"/>
+          <line x1="1100" y1="420" x2="1350" y2="500"/>
+          <line x1="520" y1="220" x2="420" y2="520"/>
+          <line x1="750" y1="70" x2="680" y2="480"/>
+          <line x1="950" y1="200" x2="880" y2="550"/>
+          <line x1="1300" y1="280" x2="1350" y2="500"/>
+          <line x1="230" y1="300" x2="120" y2="180" opacity="0.6"/>
+          <line x1="230" y1="300" x2="320" y2="90" opacity="0.6"/>
+          <line x1="600" y1="350" x2="520" y2="220" opacity="0.6"/>
+          <line x1="600" y1="350" x2="680" y2="480" opacity="0.6"/>
+          <line x1="820" y1="320" x2="950" y2="200" opacity="0.6"/>
+          <line x1="1020" y1="380" x2="1100" y2="420" opacity="0.6"/>
+        </g>
+
+        <!-- ICONO IA / CHIP -->
+        <g transform="translate(1180, 580)" opacity="0.1">
+          <rect x="0" y="0" width="80" height="80" rx="12" fill="none" stroke="#C42472" stroke-width="1.5"/>
+          <rect x="15" y="15" width="50" height="50" rx="6" fill="none" stroke="#C42472" stroke-width="1"/>
+          <line x1="20" y1="0" x2="20" y2="-12" stroke="#C42472" stroke-width="1.5"/>
+          <line x1="40" y1="0" x2="40" y2="-12" stroke="#C42472" stroke-width="1.5"/>
+          <line x1="60" y1="0" x2="60" y2="-12" stroke="#C42472" stroke-width="1.5"/>
+          <line x1="20" y1="80" x2="20" y2="92" stroke="#C42472" stroke-width="1.5"/>
+          <line x1="40" y1="80" x2="40" y2="92" stroke="#C42472" stroke-width="1.5"/>
+          <line x1="60" y1="80" x2="60" y2="92" stroke="#C42472" stroke-width="1.5"/>
+          <line x1="0" y1="20" x2="-12" y2="20" stroke="#C42472" stroke-width="1.5"/>
+          <line x1="0" y1="40" x2="-12" y2="40" stroke="#C42472" stroke-width="1.5"/>
+          <line x1="0" y1="60" x2="-12" y2="60" stroke="#C42472" stroke-width="1.5"/>
+          <line x1="80" y1="20" x2="92" y2="20" stroke="#C42472" stroke-width="1.5"/>
+          <line x1="80" y1="40" x2="92" y2="40" stroke="#C42472" stroke-width="1.5"/>
+          <line x1="80" y1="60" x2="92" y2="60" stroke="#C42472" stroke-width="1.5"/>
+          <text x="28" y="46" font-family="monospace" font-size="14" fill="#C42472" font-weight="bold">AI</text>
+        </g>
+
+        <!-- ICONO INSTAGRAM -->
+        <g transform="translate(60, 600)" opacity="0.1">
+          <rect x="0" y="0" width="56" height="56" rx="16" fill="none" stroke="#C42472" stroke-width="1.5"/>
+          <circle cx="28" cy="28" r="12" fill="none" stroke="#C42472" stroke-width="1.5"/>
+          <circle cx="28" cy="28" r="5" fill="#C42472" opacity="0.4"/>
+          <circle cx="41" cy="15" r="3" fill="#C42472"/>
+        </g>
+
+        <!-- ICONO TIKTOK -->
+        <g transform="translate(140, 610)" opacity="0.09">
+          <text x="0" y="40" font-family="Arial" font-size="44" fill="#C42472" font-weight="bold">&#9834;</text>
+        </g>
+
+        <!-- CODIGO FLOTANTE -->
+        <text x="900" y="780" font-family="monospace" font-size="11" fill="#C42472" opacity="0.07">{ prompt: "lanzar mi marca" }</text>
+        <text x="150" y="800" font-family="monospace" font-size="9" fill="#C42472" opacity="0.06">AI.generate(brandStrategy)</text>
+        <text x="450" y="850" font-family="monospace" font-size="10" fill="#C42472" opacity="0.06">model.connect(audience)</text>
+
+        <!-- CIRCULOS DECORATIVOS -->
+        <circle cx="1380" cy="800" r="280" fill="none" stroke="#C42472" stroke-width="0.5" opacity="0.05"/>
+        <circle cx="1380" cy="800" r="200" fill="none" stroke="#C42472" stroke-width="0.5" opacity="0.04"/>
+        <circle cx="30" cy="850" r="200" fill="none" stroke="#C42472" stroke-width="0.5" opacity="0.05"/>
+
+      </svg>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 13l4 4L19 7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <span class="eyebrow">&#161;Listo! Ya casi tienes los prompts</span>
+        <h1 class="headline">Tu PDF est&#225; a un clic de distancia</h1>
+        <p class="subheadline">Los 4 prompts est&#225;n en el grupo de WhatsApp. &#218;nete ahora y los encontrar&#225;s en el primer mensaje.</p>
+
+        <div class="btn-wrapper">
+          <a href="#" class="btn-whatsapp" target="_blank" rel="noopener">Unirme al grupo de WhatsApp &#8594;</a>
+          <p class="micro-copy">Grupo gratuito &middot; Los prompts est&#225;n en el mensaje pineado</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ============================== -->
+  <!-- QUE ENCUENTRAS EN EL GRUPO     -->
+  <!-- ============================== -->
+  <section class="section section--crema">
+    <div class="container">
+      <h2 class="section-title text-center">Qu&#233; encuentras en el grupo</h2>
+      <div class="benefits-grid">
+
+        <div class="benefit-card">
+          <span class="benefit-card__icon">&#128229;</span>
+          <h3 class="benefit-card__title">Tu PDF de prompts</h3>
+          <p class="benefit-card__text">En el mensaje pineado. Disponible desde el momento en que entras.</p>
+        </div>
+
+        <div class="benefit-card">
+          <span class="benefit-card__icon">&#127919;</span>
+          <h3 class="benefit-card__title">Contenido exclusivo</h3>
+          <p class="benefit-card__text">Estrategias y recursos que no publico en mis redes p&#250;blicas.</p>
+        </div>
+
+        <div class="benefit-card">
+          <span class="benefit-card__icon">&#128640;</span>
+          <h3 class="benefit-card__title">Comunidad activa</h3>
+          <p class="benefit-card__text">Profesionales como t&#250; construyendo su presencia digital con criterio.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ============================== -->
+  <!-- URGENCIA SUTIL                 -->
+  <!-- ============================== -->
+  <section class="section section--dark">
+    <div class="cta-glow"></div>
+    <div class="container">
+      <div class="urgency-content">
+        <h2 class="headline">El grupo est&#225; abierto ahora.</h2>
+        <p class="subheadline">Los prompts te esperan dentro. Entra, desc&#225;rgalos y empieza hoy.</p>
+        <a href="#" class="btn-whatsapp" target="_blank" rel="noopener">Unirme al grupo de WhatsApp &#8594;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== -->
+  <!-- FOOTER                         -->
+  <!-- ============================== -->
+  <footer class="footer">
+    <div class="container">
+      <p>@sulmamarte11 &middot; Sulma Marte &middot; 2026</p>
+    </div>
+    <div class="disclaimer">
+      <div class="container">
+        <p>&copy; 2026 Sulma Marte. Todos los derechos reservados. Este sitio no es parte del sitio web de Facebook o de Meta, Inc. Adem&#225;s, este sitio no est&#225; respaldado por Facebook ni por Meta de ninguna manera. FACEBOOK es una marca comercial de META, Inc.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.benefit-card, .urgency-content').forEach(function(el) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
