@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Propuesta de gestión de Meta Ads para VetConference Ecuador · MAS Marketing Agency">
+<title>Propuesta VetConference Ecuador</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: una columna editorial de lectura (720px) con bandas a todo el ancho para el simulador y la oferta; negro y dorado de la marca MAS */
+:root {
+  --bg: #0A0A0A;
+  --surface: #121211;
+  --surface-2: #1A1A18;
+  --line: #2A2926;
+  --fg: #F5F3EE;
+  --muted: #A3A099;
+  --faint: #6B6862;
+  --gold: #C9A84C;
+  --gold-soft: rgba(201,168,76,.12);
+  --good: #6FBF8E;
+  --bad: #E07A6A;
+  --display: "Manrope", "Segoe UI", system-ui, sans-serif;
+  --body: "Inter", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; overflow-x: hidden; }
+h1, h2, h3, p, td, b { overflow-wrap: break-word; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--body); font-size: 16px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--gold); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 760px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wide { max-width: 1040px; }
+section { padding-block: 56px; border-top: 1px solid var(--line); }
+h1, h2, h3 { font-family: var(--display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(34px, 6vw, 56px); font-weight: 800; letter-spacing: -.02em; }
+h2 { font-size: clamp(24px, 3.4vw, 32px); font-weight: 800; letter-spacing: -.01em; margin-bottom: 14px; }
+h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
+.gold { color: var(--gold); }
+.eyebrow { font-family: var(--display); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+p { margin: 0 0 14px; max-width: 65ch; }
+.lead { font-size: 18px; color: var(--muted); }
+.muted { color: var(--muted); }
+.small { font-size: 14px; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* Hero */
+.hero { padding-block: max(40px, env(safe-area-inset-top, 0px)) 48px; border-top: 0; }
+.brand { display: block; font-family: var(--display); font-weight: 800; font-size: 18px; margin-bottom: 40px; }
+.brand .dot { color: var(--gold); }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 22px; color: var(--muted); font-size: 14px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 999px; font-family: var(--display); font-weight: 700; font-size: 15px; text-decoration: none; border: 1px solid var(--gold); }
+.btn-gold { background: var(--gold); color: #0A0A0A; }
+.btn-ghost { color: var(--fg); border-color: var(--line); }
+.btn-ghost:hover { border-color: var(--gold); }
+.btn-gold:hover { background: #E2BC6A; }
+.kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; margin-top: 44px; }
+.kpi { background: var(--surface); padding: 18px 18px 16px; min-width: 0; }
+.kpi b { display: block; font-family: var(--display); font-size: 28px; font-weight: 800; color: var(--gold); font-variant-numeric: tabular-nums; }
+.kpi span { font-size: 13px; color: var(--muted); }
+
+/* Tablas */
+.table-scroll { overflow-x: auto; margin: 18px 0 8px; border: 1px solid var(--line); border-radius: 12px; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--display); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 700; background: var(--surface); white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td.r, th.r { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+tr.total td { font-weight: 700; color: var(--gold); background: var(--gold-soft); }
+
+/* Listas */
+.stakes { list-style: none; padding: 0; margin: 18px 0; display: grid; gap: 12px; }
+.stakes li { padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+.stakes b { display: block; font-family: var(--display); margin-bottom: 2px; }
+.steps { list-style: none; padding: 0; margin: 20px 0; counter-reset: s; display: grid; gap: 18px; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 52px 1fr; gap: 14px; }
+.steps li::before { content: counter(s, decimal-leading-zero); font-family: var(--display); font-weight: 800; font-size: 26px; color: var(--gold); line-height: 1.1; }
+.steps b { font-family: var(--display); }
+.steps .when { font-family: var(--mono); font-size: 12px; color: var(--faint); margin-left: 6px; }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
+.panel.gold { border-color: rgba(201,168,76,.55); background: linear-gradient(180deg, var(--gold-soft), transparent 60%), var(--surface); }
+.price { font-family: var(--display); font-size: 40px; font-weight: 800; color: var(--gold); font-variant-numeric: tabular-nums; }
+.chk { list-style: none; padding: 0; margin: 12px 0; display: grid; gap: 8px; }
+.chk li { padding-left: 24px; position: relative; }
+.chk li::before { content: ""; position: absolute; left: 2px; top: .55em; width: 10px; height: 6px; border-left: 2px solid var(--gold); border-bottom: 2px solid var(--gold); transform: rotate(-45deg); }
+
+/* Simulador */
+.sim-band { background: var(--surface); }
+.sim { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 28px; margin-top: 22px; }
+.field { display: grid; gap: 6px; margin-bottom: 18px; }
+.field label { font-size: 14px; color: var(--muted); display: flex; justify-content: space-between; gap: 12px; }
+.field label output { font-family: var(--mono); color: var(--fg); }
+.field input[type=number], .sel { width: 100%; background: var(--bg); color: var(--fg); border: 1px solid var(--line); border-radius: 10px; padding: 11px 12px; font: 500 16px var(--mono); }
+.field input[type=range] { width: 100%; accent-color: var(--gold); }
+.result { background: var(--bg); border: 1px solid var(--line); border-radius: 16px; padding: 22px; min-width: 0; }
+.rows { display: grid; gap: 0; }
+.row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px dashed var(--line); font-variant-numeric: tabular-nums; }
+.row span:first-child { color: var(--muted); }
+.row span:last-child { font-family: var(--mono); white-space: nowrap; }
+.profit { margin-top: 18px; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.profit .lbl { font-family: var(--display); font-weight: 700; }
+.profit .val { font-family: var(--display); font-size: 36px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.profit .val.pos { color: var(--good); }
+.profit .val.neg { color: var(--bad); }
+.bar { height: 12px; border-radius: 999px; overflow: hidden; display: flex; background: var(--surface-2); margin-top: 16px; }
+.bar i { display: block; height: 100%; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 10px; font-size: 12px; color: var(--muted); }
+.legend span::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 6px; background: var(--c); vertical-align: middle; }
+.note { font-size: 13px; color: var(--faint); margin-top: 14px; }
+.presets { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.presets button { background: transparent; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; font: 600 13px var(--body); cursor: pointer; }
+.presets button[aria-pressed="true"] { color: #0A0A0A; background: var(--gold); border-color: var(--gold); }
+
+/* Planes */
+.plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 20px; }
+.plan { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.plan.rec { border-color: var(--gold); }
+.plan .tag { align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #0A0A0A; background: var(--gold); padding: 3px 10px; border-radius: 999px; }
+.plan .fee { font-family: var(--display); font-size: 30px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.plan .fee small { font-size: 14px; color: var(--muted); font-weight: 600; }
+.plan p { font-size: 14px; color: var(--muted); margin: 0; }
+
+/* Testimonios, portafolio */
+blockquote { margin: 20px 0; padding: 22px 24px; border-left: 3px solid var(--gold); background: var(--surface); border-radius: 0 14px 14px 0; }
+blockquote p { font-family: var(--display); font-size: 22px; font-weight: 700; line-height: 1.35; margin-bottom: 10px; }
+blockquote footer { color: var(--muted); font-size: 14px; }
+.links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 16px; }
+.links a { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; color: var(--fg); text-decoration: none; min-width: 0; }
+.links a:hover { border-color: var(--gold); }
+.links a span { font-size: 12px; color: var(--muted); white-space: nowrap; }
+.links a b { font-weight: 600; overflow-wrap: anywhere; }
+
+/* FAQ */
+details { border-bottom: 1px solid var(--line); }
+summary { cursor: pointer; list-style: none; padding: 16px 32px 16px 0; font-family: var(--display); font-weight: 700; font-size: 17px; position: relative; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; position: absolute; right: 4px; top: 12px; font-size: 22px; color: var(--gold); }
+details[open] summary::after { content: "−"; }
+details p { color: var(--muted); }
+
+.contact { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 24px; }
+.contact div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px; min-width: 0; }
+.contact span { display: block; font-size: 12px; color: var(--faint); text-transform: uppercase; letter-spacing: .08em; }
+.contact b { font-weight: 600; overflow-wrap: anywhere; user-select: all; }
+footer.page { padding-block: 32px 48px; color: var(--faint); font-size: 13px; border-top: 1px solid var(--line); }
+
+@media (max-width: 760px) {
+  h1 { font-size: 32px; }
+  .hero { padding-block: 32px 36px; }
+  .brand { margin-bottom: 24px; }
+  .btn { width: 100%; justify-content: center; }
+  .sim, .plans, .links, .contact { grid-template-columns: 1fr; }
+  .kpis { grid-template-columns: 1fr; }
+  section { padding-block: 44px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+
+<header class="wrap hero">
+  <div class="brand">MAS<span class="dot">.</span>&nbsp;marketing</div>
+  <div class="eyebrow">Propuesta para VetConference Ecuador</div>
+  <h1>Más médicos veterinarios <span class="gold">inscritos</span> por cada dólar en Meta.</h1>
+  <p class="lead" style="margin-top:18px">Gestión de campañas en Facebook e Instagram para llenar sus cursos, talleres y certificaciones, con el costo por inscripción medido cada semana.</p>
+  <div class="meta"><span>Preparada por Marco Suniaga, director</span><span>10 de noviembre de 2026</span></div>
+  <div class="cta-row">
+    <a class="btn btn-gold" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ18ZHT52GsVIYw15vr0uw5EfHleTDWHboeyA2DPOwYdzgx1WqAarYHMAVoREeoDZWOb8Q9eoj80" target="_blank" rel="noopener">Agendar diagnóstico ↗</a>
+    <a class="btn btn-ghost" href="#simulador">Probar el simulador</a>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><b>1.247</b><span>conversaciones de WhatsApp a $0,70 para una clínica de salud</span></div>
+    <div class="kpi"><b>$275</b><span>facturados con $54 de inversión en un lanzamiento de formación</span></div>
+    <div class="kpi"><b>412</b><span>registros para programas de una formadora en Colombia</span></div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Lo que necesitan</div>
+    <h2>Toda la atención puesta en su cuenta publicitaria</h2>
+    <p>Ustedes ya producen video, fotografía y material gráfico. Nuestro trabajo es convertir esa producción en conversaciones con veterinarios interesados y en inscripciones medidas.</p>
+    <div class="table-scroll"><table>
+      <thead><tr><th>Necesidad</th><th>Cómo la cubrimos</th></tr></thead>
+      <tbody>
+        <tr><td>Auditoría de la cuenta actual</td><td>Diagnóstico Express como primer paso</td></tr>
+        <tr><td>Configuración y optimización</td><td>Estructura por curso, taller y certificación, con presupuesto por etapa</td></tr>
+        <tr><td>Segmentación a veterinarios</td><td>Intereses profesionales, públicos propios y similares a sus exalumnos</td></tr>
+        <tr><td>Conversaciones y potenciales alumnos</td><td>Campañas de mensajes a WhatsApp y formularios con preguntas filtro</td></tr>
+        <tr><td>Remarketing y seguimiento</td><td>Secuencias para quien vio videos, escribió o visitó la página</td></tr>
+        <tr><td>Medición de resultados</td><td>Costo por conversación, por interesado calificado y por inscripción</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Lo que está en juego</div>
+    <h2>Cada curso que cierra con cupos libres es ingreso que ya no vuelve</h2>
+    <p>Su propio mensaje lo resume: hoy la publicidad genera interacciones, y lo que VetConference necesita son médicos veterinarios inscritos.</p>
+    <ul class="stakes">
+      <li><b>Presupuesto que se queda en el alcance.</b>Cuando la campaña optimiza para interacción, Meta encuentra a quien da like, y ese perfil rara vez paga una certificación.</li>
+      <li><b>Un costo por inscripción que nadie mide.</b>Mientras ese número siga oculto, cada decisión de presupuesto depende de la intuición.</li>
+      <li><b>Producción de calidad sin datos de cuál pieza vende.</b>La pieza que más inscribe recibe hoy el mismo presupuesto que la que menos inscribe.</li>
+      <li><b>Interesados que preguntan y se enfrían.</b>Un veterinario que escribe por el precio y queda sin seguimiento en 48 horas suele inscribirse en la siguiente oferta que le responde.</li>
+      <li><b>Una presencia que depende de redes sociales.</b>El profesional que quiere revisar temario, docentes y aval antes de escribir encuentra la información dispersa, y Meta pierde datos para el remarketing.</li>
+    </ul>
+    <p class="muted">Un curso de 40 cupos a $200 que se llena al 60% deja $3.200 sin facturar en una sola convocatoria. Con 6 programas al año, la diferencia entre llenar al 60% y al 90% supera los $14.000.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Primer paso</div>
+    <div class="panel gold">
+      <h2 style="margin-bottom:6px">Diagnóstico Meta Ads Express</h2>
+      <div class="price num">$29 <span class="small muted" style="font-family:var(--body);font-weight:500">acreditables al primer mes de gestión</span></div>
+      <p style="margin-top:10px">Revisamos los últimos 90 días de su cuenta antes de proponer un honorario cerrado. Si deciden trabajar con nosotros, el diagnóstico les sale gratis. Este diagnóstico entra a su cuenta publicitaria y complementa la revisión gratuita de presencia digital que ofrecemos en nuestra web para negocios locales.</p>
+      <ul class="chk">
+        <li>Estructura, objetivos y distribución del presupuesto</li>
+        <li>Públicos, exclusiones y solapamiento</li>
+        <li>Creativos que generan conversaciones y creativos que consumen sin respuesta</li>
+        <li>Píxel, API de conversiones y conexión con WhatsApp</li>
+        <li>Recorrido del interesado hasta la inscripción</li>
+      </ul>
+      <p class="small muted" style="margin:0">Reciben: informe con capturas, 3 a 5 acciones priorizadas, costo por inscripción alcanzable, videollamada de 30 minutos y propuesta con honorario cerrado. Entrega en 3 días hábiles.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Metodología</div>
+    <h2>Un embudo, un presupuesto y una meta por programa</h2>
+    <ol class="steps">
+      <li><div><b>Diagnóstico</b><span class="when">días 1 a 3</span><br><span class="muted">Auditoría de la cuenta y de sus últimas convocatorias. Definimos el costo por inscripción objetivo según el precio de cada programa.</span></div></li>
+      <li><div><b>Configuración</b><span class="when">semana 1</span><br><span class="muted">Píxel y API de conversiones, etiquetas de WhatsApp Business para interesados e inscritos, públicos propios y estructura por programa.</span></div></li>
+      <li><div><b>Lanzamiento y prueba</b><span class="when">semanas 2 y 3</span><br><span class="muted">3 a 5 ganchos con su material, 2 o 3 segmentaciones y el mensaje de bienvenida en WhatsApp. El presupuesto se mueve hacia lo que genera conversaciones calificadas.</span></div></li>
+      <li><div><b>Escala y remarketing</b><span class="when">semana 4 en adelante</span><br><span class="muted">Más inversión en lo que funciona y secuencias para quien mostró interés: testimonios, temario, docentes, cupos y fecha de cierre.</span></div></li>
+      <li><div><b>Optimización continua</b><span class="when">cada semana</span><br><span class="muted">Reporte semanal, reunión mensual y recomendaciones de piezas para que su equipo grabe lo que más inscribe.</span></div></li>
+    </ol>
+    <div class="table-scroll"><table>
+      <thead><tr><th>Etapa</th><th>Métrica</th><th>Cómo se mide</th></tr></thead>
+      <tbody>
+        <tr><td>Atención</td><td>CPM y reproducción del video</td><td>Administrador de anuncios</td></tr>
+        <tr><td>Interés</td><td>CTR y costo por clic</td><td>Administrador de anuncios</td></tr>
+        <tr><td>Conversación</td><td>Costo por conversación en WhatsApp</td><td>Objetivo de mensajes de Meta</td></tr>
+        <tr><td>Interesado calificado</td><td>Costo por contacto que pide precio, temario o fechas</td><td>Etiqueta en WhatsApp Business</td></tr>
+        <tr><td>Inscripción</td><td>Costo por inscripción y retorno</td><td>Etiqueta de inscrito y evento enviado a Meta</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Casos</div>
+    <h2>Resultados recientes en salud y formación</h2>
+    <p>Cifras tomadas del administrador de anuncios de Meta. Podemos mostrarlas en pantalla durante la reunión.</p>
+    <div class="table-scroll"><table>
+      <thead><tr><th>Cliente</th><th>Sector · país</th><th class="r">Inversión</th><th>Resultado principal</th></tr></thead>
+      <tbody>
+        <tr><td>Sulma Marte · clínica de salud y bienestar</td><td>Salud · Panamá</td><td class="r">$875,75</td><td>1.247 conversaciones de WhatsApp a $0,70 · 310.405 personas alcanzadas</td></tr>
+        <tr><td>Luchy Ghisays · mentora y formadora</td><td>Formación · Colombia</td><td class="r">≈ $800</td><td>412 registros y 583 conversaciones · 221.951 personas alcanzadas</td></tr>
+        <tr><td>Retos de formación de bajo costo</td><td>Formación · LATAM</td><td class="r">$450–500</td><td>Inversión por campaña en venta de retos</td></tr>
+        <tr><td>Marialejandra Velazco · Vende con IA desde Cero</td><td>Formación · Venezuela</td><td class="r">$54,43</td><td>105 leads, 25 ventas y $275 facturados</td></tr>
+        <tr><td>Ana Lilia · programa online (en curso)</td><td>Formación · México</td><td class="r">$42,42</td><td>1.703 visitas a la página de venta a $0,025 en 5 días</td></tr>
+      </tbody>
+    </table></div>
+    <h3 style="margin-top:28px">Marialejandra Velazco: inversión, facturación y ganancia</h3>
+    <div class="table-scroll"><table>
+      <tbody>
+        <tr><td>Inversión publicitaria</td><td class="r">$54,43</td></tr>
+        <tr><td>Leads a $0,52 cada uno</td><td class="r">105</td></tr>
+        <tr><td>Ventas en el lanzamiento (15 × $7)</td><td class="r">$105</td></tr>
+        <tr><td>Ventas posteriores a la comunidad de WhatsApp (10 × $17)</td><td class="r">$170</td></tr>
+        <tr class="total"><td>Facturación total generada por la campaña</td><td class="r">$275</td></tr>
+        <tr class="total"><td>Ganancia neta sobre la publicidad</td><td class="r">$220,57</td></tr>
+      </tbody>
+    </table></div>
+    <p class="small muted">El lanzamiento solo devolvió 1,93x la inversión. La comunidad que dejó la campaña siguió comprando cuando el programa subió de precio, y la facturación total llegó a 5 veces lo invertido.</p>
+  </div>
+</section>
+
+<section class="sim-band" id="simulador">
+  <div class="wrap wide">
+    <div class="eyebrow">Simulador</div>
+    <h2>De la inversión mensual a los veterinarios inscritos</h2>
+    <p class="muted">Ajuste la inversión, el costo por conversación y la tasa de inscripción. Los valores iniciales son estimaciones de referencia; el diagnóstico los reemplaza con los datos reales de su cuenta.</p>
+    <div class="sim">
+      <form id="simform" novalidate>
+        <div class="presets" role="group" aria-label="Escenario">
+          <button type="button" data-cpc="2.5" data-conv="2" aria-pressed="false">Conservador</button>
+          <button type="button" data-cpc="1.5" data-conv="3" aria-pressed="true">Referencia</button>
+          <button type="button" data-cpc="1" data-conv="4" aria-pressed="false">Favorable</button>
+        </div>
+        <div class="field"><label for="inv">Inversión mensual en Meta (USD)</label><input id="inv" type="number" min="0" step="50" value="500" inputmode="numeric"></div>
+        <div class="field"><label for="meses">Meses de campaña <output id="mesesOut" for="meses">3</output></label><input id="meses" type="range" min="1" max="6" step="1" value="3"></div>
+        <div class="field"><label for="cpc">Costo por conversación en WhatsApp (USD)</label><input id="cpc" type="number" min="0.1" step="0.1" value="1.5" inputmode="decimal"></div>
+        <div class="field"><label for="conv">Conversaciones que se inscriben (%)</label><input id="conv" type="number" min="0" max="100" step="0.5" value="3" inputmode="decimal"></div>
+        <div class="field"><label for="precio">Precio por cupo (USD)</label><input id="precio" type="number" min="1" step="1" value="200" inputmode="numeric"></div>
+        <div class="field"><label for="plan">Plan de gestión</label>
+          <select id="plan" class="sel">
+            <option value="390">Lanzamiento · $390 al mes</option>
+            <option value="590" selected>Captación · $590 al mes</option>
+            <option value="escala">Escala · $590 + 10% sobre $3.000</option>
+          </select></div>
+        <div class="field"><label for="prod">Costo de producción en el período (USD)</label><input id="prod" type="number" min="0" step="50" value="0" inputmode="numeric"></div>
+      </form>
+      <div class="result" aria-live="polite">
+        <div class="eyebrow" id="rTitle" style="margin-bottom:6px">Total en 3 meses</div>
+        <div class="rows">
+          <div class="row"><span>Conversaciones en WhatsApp</span><span id="rConvs">1.000</span></div>
+          <div class="row"><span>Veterinarios inscritos</span><span id="rIns">30</span></div>
+          <div class="row"><span>Facturación</span><span id="rFact">$6.000</span></div>
+          <div class="row"><span>Pago a Meta</span><span id="rAds">$1.500</span></div>
+          <div class="row"><span>Honorarios de gestión</span><span id="rFee">$1.770</span></div>
+          <div class="row"><span>Producción</span><span id="rProd">$0</span></div>
+          <div class="row"><span>Costo por inscripción (solo publicidad)</span><span id="rCpa">$50</span></div>
+          <div class="row"><span>Inscripciones para cubrir todos los gastos</span><span id="rBe">17</span></div>
+        </div>
+        <div class="profit"><span class="lbl">Resultado estimado</span><span class="val pos" id="rProfit">$2.730</span></div>
+        <div class="bar" aria-hidden="true"><i id="bAds" style="background:#7C6A3A"></i><i id="bFee" style="background:#C9A84C"></i><i id="bProd" style="background:#5B5852"></i><i id="bProfit" style="background:#6FBF8E"></i></div>
+        <div class="legend"><span style="--c:#7C6A3A">Meta</span><span style="--c:#C9A84C">Honorarios</span><span style="--c:#5B5852">Producción</span><span style="--c:#6FBF8E">Resultado</span></div>
+        <p class="note">Por mes: <span id="rMonth">10 inscritos · $2.000 facturados · $1.090 de gasto en Meta y gestión</span>. Los inscritos que llegan por su comunidad actual y por recomendación se suman a este resultado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Lo que dicen nuestros clientes</div>
+    <blockquote>
+      <p>“Es real. Gracias por el acompañamiento, súper recomendado.”</p>
+      <footer>Marialejandra Velazco, sobre la campaña y el lanzamiento de su programa · <a href="https://www.instagram.com/reel/DfIPVZfpn1_/" target="_blank" rel="noopener">ver publicación</a></footer>
+    </blockquote>
+    <div class="links">
+      <a href="https://www.instagram.com/reel/DezSZCex6FT/" target="_blank" rel="noopener"><b>Pedro Leal</b><span>Reel · sitio web</span></a>
+      <a href="https://www.instagram.com/reel/DYvc6ojpMQG/" target="_blank" rel="noopener"><b>Kenia Carpio</b><span>Publicación · sitio web</span></a>
+      <a href="https://maps.google.com/?cid=14084274396524590968" target="_blank" rel="noopener"><b>Reseñas en Google</b><span>Perfil de empresa</span></a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap wide">
+    <div class="eyebrow">Honorarios mensuales</div>
+    <h2>Recomendamos el Plan Captación</h2>
+    <p class="muted">La inversión publicitaria se paga directo a Meta desde su tarjeta y ustedes conservan la propiedad de la cuenta. Los honorarios de gestión van aparte y se confirman después del diagnóstico.</p>
+    <div class="plans">
+      <div class="plan"><h3>Lanzamiento</h3><div class="fee">$390<small> /mes</small></div><p>1 programa activo, inversión en Meta hasta $1.000 al mes. Campañas de conversación, segmentación profesional y reporte semanal.</p></div>
+      <div class="plan rec"><span class="tag">Recomendado</span><h3>Captación</h3><div class="fee">$590<small> /mes</small></div><p>Hasta 3 programas en paralelo, inversión hasta $3.000 al mes. Suma remarketing por etapa, públicos de exalumnos, medición de inscripciones y reunión quincenal.</p></div>
+      <div class="plan"><h3>Escala</h3><div class="fee">$590<small> + 10%</small></div><p>Calendario anual de congresos y certificaciones, inversión desde $3.000 al mes. El 10% aplica sobre la inversión que supere $3.000. Incluye pruebas continuas de piezas y reunión semanal.</p></div>
+    </div>
+    <p class="small muted" style="margin-top:14px">Configuración inicial: $190, pago único. Píxel, API de conversiones, etiquetas de WhatsApp Business, públicos propios y estructura de campañas.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Válida hasta el lunes 16 de noviembre de 2026</div>
+    <h2>Oferta de incorporación</h2>
+    <div class="table-scroll"><table>
+      <thead><tr><th>Concepto</th><th class="r">Regular</th><th class="r">Hasta el 16/11</th></tr></thead>
+      <tbody>
+        <tr><td>Diagnóstico Meta Ads Express</td><td class="r">$29</td><td class="r">Acreditado</td></tr>
+        <tr><td>Configuración inicial</td><td class="r">$190</td><td class="r">Incluida</td></tr>
+        <tr><td>Plan Captación, primer mes</td><td class="r">$590</td><td class="r">$590</td></tr>
+        <tr class="total"><td>Total para arrancar</td><td class="r">$809</td><td class="r">$590</td></tr>
+      </tbody>
+    </table></div>
+    <div class="panel gold" style="margin-top:20px">
+      <h3>Paquete trimestral Plan Captación</h3>
+      <p class="muted" style="margin-bottom:12px">3 meses de gestión más configuración inicial, con un valor regular de $1.960.</p>
+      <div class="table-scroll" style="margin:0"><table>
+        <tbody>
+          <tr><td>Pago único</td><td class="r"><b>$1.600</b></td><td class="r muted">ahorran $360</td></tr>
+          <tr><td>Dos pagos de $850</td><td class="r"><b>$1.700</b></td><td class="r muted">ahorran $260</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <p class="small muted" style="margin-top:16px">Por qué esta fecha: una campaña nueva necesita entre 2 y 3 semanas para estabilizar su costo. Arrancar en la segunda quincena de noviembre deja las campañas optimizadas antes de la pausa de diciembre y listas para sus convocatorias de enero.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Complemento opcional</div>
+    <h2>Un sitio web para VetConference</h2>
+    <p>Una página por programa le da al veterinario un lugar para revisar temario, docentes, fechas y aval antes de escribir. Cada visita alimenta el píxel de Meta y habilita el remarketing por curso.</p>
+    <div class="table-scroll"><table>
+      <thead><tr><th>Opción</th><th>Incluye</th><th class="r">Precio</th></tr></thead>
+      <tbody>
+        <tr><td>Página de programa</td><td>Una página por curso con temario, docentes, fechas, precio, botón a WhatsApp, píxel y API de conversiones</td><td class="r">$250<br><span class="small muted">$190 junto al Plan Captación hasta el 16/11</span></td></tr>
+        <tr><td>Sitio web completo</td><td>Sitio moderno con animaciones y diseño actual, catálogo de programas, docentes y formulario a WhatsApp. Incluye dominio y hosting por 1 año, SEO por 3 meses, píxel y API de conversiones</td><td class="r">$450 a $790<br><span class="small muted">según complejidad</span></td></tr>
+      </tbody>
+    </table></div>
+    <h3 style="margin-top:24px">Sitios que hemos desarrollado</h3>
+    <div class="links">
+      <a href="https://masmarketingagency.com/" target="_blank" rel="noopener"><b>MAS Marketing Agency</b><span>Sitio completo</span></a>
+      <a href="https://institutoconcienciavital.com/" target="_blank" rel="noopener"><b>Instituto Conciencia Vital</b><span>Sitio completo</span></a>
+      <a href="https://institutoconcienciavital.com/gloria-vsl" target="_blank" rel="noopener"><b>Reto de Gloria Dupont</b><span>Página de programa</span></a>
+      <a href="https://www.pedritoleal.com/" target="_blank" rel="noopener"><b>Pedro Leal</b><span>Sitio completo</span></a>
+      <a href="https://keniacarpio.vercel.app/" target="_blank" rel="noopener"><b>Kenia Carpio</b><span>Sitio completo</span></a>
+      <a href="https://luchyghisays.vercel.app/" target="_blank" rel="noopener"><b>Luchy Ghisays</b><span>Sitio completo</span></a>
+      <a href="https://rebecatrujillo.somosaula.com/" target="_blank" rel="noopener"><b>Rebeca Trujillo</b><span>Sitio completo</span></a>
+      <a href="https://consultorio-xiurica.vercel.app/" target="_blank" rel="noopener"><b>Dra. Xiurica Tremont</b><span>Sitio completo</span></a>
+      <a href="https://marialevelazco.vercel.app/" target="_blank" rel="noopener"><b>Marialejandra Velazco</b><span>Página de programa</span></a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Preguntas frecuentes</div>
+    <h2>Lo que más nos preguntan</h2>
+    <details><summary>¿Cuánto sería nuestro retorno si invertimos $500 en publicidad?</summary><p>Depende de dos números: cuánto cuesta cada conversación en WhatsApp y qué porcentaje de esas conversaciones se inscribe. Con una referencia de $1,50 por conversación y 3% de inscripción, $500 al mes generan unas 333 conversaciones y 10 inscritos: $2.000 a $200 por cupo. Pueden probar sus propios valores en el simulador, y el diagnóstico los calcula con los datos reales de su cuenta.</p></details>
+    <details><summary>¿Qué pasa si el primer mes los resultados son bajos?</summary><p>El primer mes es de prueba y aprendizaje: identificamos qué anuncios, públicos y mensajes generan conversaciones con veterinarios. Cada semana reciben los números y ajustamos en cuanto una métrica se estanca. Por eso el compromiso es de 3 meses: el segundo escala lo que funciona y el tercero consolida un costo por inscripción estable.</p></details>
+    <details><summary>¿Subirán los honorarios si nuestra facturación crece?</summary><p>Los honorarios se calculan solo con la inversión en publicidad y el número de programas, según la tabla de planes. Su facturación queda fuera del cálculo.</p></details>
+    <details><summary>¿Pueden garantizar resultados?</summary><p>Garantizamos el método: configuración correcta, pruebas constantes, medición semanal y decisiones basadas en datos. El resultado depende también del programa, el precio y la atención a los interesados, por eso trabajamos con proyecciones y las ajustamos cada semana con ustedes.</p></details>
+    <details><summary>¿Cuál debería ser nuestra inversión mínima?</summary><p>Recomendamos empezar con $500 al mes durante 3 meses. Es suficiente para medir el costo por conversación y por inscripción con datos propios, y con esos números decidimos juntos cuándo y cuánto escalar.</p></details>
+    <details><summary>¿Cómo se gasta el presupuesto en Meta?</summary><p>Se distribuye por día: $1.500 al mes equivalen a unos $50 diarios, repartidos entre campañas de captación (70% a 80%) y remarketing (20% a 30%). El pago va directo a Meta desde su tarjeta y ven cada gasto en su cuenta.</p></details>
+    <details><summary>¿La inversión en Meta incluye los honorarios?</summary><p>Son dos pagos separados: la inversión publicitaria va directo a Meta y los honorarios de gestión se pagan a MAS Marketing Agency.</p></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Próximos pasos</div>
+    <h2>Empezamos con el diagnóstico</h2>
+    <ol class="steps">
+      <li><div><b>Agendan la reunión</b><br><span class="muted">Videollamada de 30 minutos para revisar su cuenta, su calendario de cursos y resolver dudas.</span></div></li>
+      <li><div><b>Confirman el diagnóstico</b><br><span class="muted">Pago de $29 acreditable y acceso de analista a la cuenta publicitaria.</span></div></li>
+      <li><div><b>Revisamos juntos el informe</b><br><span class="muted">En 3 días hábiles reciben el informe y la propuesta con honorario cerrado.</span></div></li>
+    </ol>
+    <p class="small muted">Compromiso inicial de 3 meses. Pago mensual por adelantado vía Zelle, Binance o transferencia en USD.</p>
+    <div class="cta-row">
+      <a class="btn btn-gold" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ18ZHT52GsVIYw15vr0uw5EfHleTDWHboeyA2DPOwYdzgx1WqAarYHMAVoREeoDZWOb8Q9eoj80" target="_blank" rel="noopener">Agendar diagnóstico ↗</a>
+      <a class="btn btn-ghost" href="https://wa.me/584129991787?text=Hola%20Marco%2C%20somos%20VetConference%20Ecuador" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    </div>
+    <div class="contact">
+      <div><span>WhatsApp</span><b>+58 412 999 1787</b></div>
+      <div><span>Correo</span><b>mas.marketingoficial@gmail.com</b></div>
+      <div><span>Web</span><b>masmarketingagency.com</b></div>
+    </div>
+  </div>
+</section>
+
+<footer class="page"><div class="wrap">Marco Suniaga · MAS Marketing Agency · Propuesta preparada para VetConference Ecuador. Las proyecciones son estimaciones de referencia y se ajustan con los datos del diagnóstico.</div></footer>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var sep = function (n) { return Math.round(Math.abs(n)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); };
+  var money = function (n) { return (n < 0 ? "−$" : "$") + sep(n); };
+  function feeMonth(plan, inv) { return plan === "escala" ? 590 + Math.max(0, inv - 3000) * 0.1 : +plan; }
+  function calc() {
+    var inv = Math.max(0, +$("inv").value || 0);
+    var meses = +$("meses").value || 1;
+    var cpc = Math.max(0.01, +$("cpc").value || 0.01);
+    var convPct = Math.max(0, +$("conv").value || 0);
+    var precio = Math.max(0, +$("precio").value || 0);
+    var prod = Math.max(0, +$("prod").value || 0);
+    var fm = feeMonth($("plan").value, inv);
+    var convsM = inv / cpc;
+    var insM = Math.floor(convsM * convPct / 100);
+    var ins = Math.floor(convsM * meses * convPct / 100);
+    var fact = ins * precio;
+    var ads = inv * meses, fee = fm * meses, gasto = ads + fee + prod;
+    var res = fact - gasto;
+    $("mesesOut").textContent = meses;
+    $("rTitle").textContent = meses === 1 ? "Total en 1 mes" : "Total en " + meses + " meses";
+    $("rConvs").textContent = sep(convsM * meses);
+    $("rIns").textContent = sep(ins);
+    $("rFact").textContent = money(fact);
+    $("rAds").textContent = money(ads);
+    $("rFee").textContent = money(fee);
+    $("rProd").textContent = money(prod);
+    $("rCpa").textContent = ins > 0 ? money(ads / ins) : "—";
+    $("rBe").textContent = precio > 0 ? sep(Math.ceil(gasto / precio)) : "—";
+    var pv = $("rProfit"); pv.textContent = money(res); pv.className = "val " + (res >= 0 ? "pos" : "neg");
+    $("rMonth").textContent = sep(insM) + " inscritos · " + money(insM * precio) + " facturados · " + money(inv + fm) + " de gasto en Meta y gestión";
+    var total = Math.max(fact, gasto) || 1;
+    $("bAds").style.width = (ads / total * 100) + "%";
+    $("bFee").style.width = (fee / total * 100) + "%";
+    $("bProd").style.width = (prod / total * 100) + "%";
+    $("bProfit").style.width = (Math.max(res, 0) / total * 100) + "%";
+    document.querySelectorAll(".presets button").forEach(function (b) {
+      b.setAttribute("aria-pressed", (+b.dataset.cpc === cpc && +b.dataset.conv === convPct) ? "true" : "false");
+    });
+  }
+  var f = $("simform");
+  f.addEventListener("input", calc);
+  f.addEventListener("change", calc);
+  f.addEventListener("submit", function (e) { e.preventDefault(); });
+  document.querySelectorAll(".presets button").forEach(function (b) {
+    b.addEventListener("click", function () { $("cpc").value = b.dataset.cpc; $("conv").value = b.dataset.conv; calc(); });
+  });
+  calc();
+})();
+</script>
+
+</body>
+</html>
