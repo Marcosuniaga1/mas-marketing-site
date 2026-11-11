@@ -29,7 +29,7 @@ export default function CursoConTuVoz() {
     <div className="flex min-h-screen flex-col hero-bg">
       <main className="relative flex-1 overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-50 pointer-events-none" />
-        <section className="relative mx-auto max-w-6xl px-5 pt-8 pb-14 text-center sm:px-8 sm:pt-10">
+        <section className="relative mx-auto max-w-6xl px-5 pt-6 pb-14 text-center sm:px-8 sm:pt-7">
           <p className="reveal text-xs uppercase tracking-[0.25em] text-[var(--gold)]">Tu curso, con tu voz · Done for You</p>
           <h1 className="reveal mt-4 font-[var(--font-sora)] text-4xl font-bold leading-[1.05] tracking-[-0.03em] text-white sm:text-5xl">
             Tu curso vendiendo. <span className="text-gold-gradient">Tu energía, para tu vida.</span>
@@ -41,7 +41,7 @@ export default function CursoConTuVoz() {
           <div
             className="mx-auto mt-6"
             // El video se ajusta al alto de la pantalla para que título, video y botón quepan sin hacer scroll.
-            style={{ maxWidth: "min(100%, 60rem, calc((100svh - 350px) * 16 / 9))" }}
+            style={{ maxWidth: "min(100%, 64rem, calc((100svh - 295px) * 16 / 9))" }}
           >
             <VideoConSonido
               src="/videos/tu-curso-con-tu-voz.mp4"
@@ -50,7 +50,7 @@ export default function CursoConTuVoz() {
             />
           </div>
 
-          <div className="mt-3 flex flex-col items-center gap-2">
+          <div className="mt-2 flex flex-col items-center gap-1.5">
             <ChevronDown className="baja-flecha h-7 w-7 text-[var(--gold)]" aria-hidden="true" />
             <TrackedLink
               href={AGENDA_URL}
