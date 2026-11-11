@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/branding`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/agentes-whatsapp`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/emprendedores-360`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/tu-curso-con-tu-voz`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/sobre-nosotros`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/testimonios`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     { url: `${base}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
