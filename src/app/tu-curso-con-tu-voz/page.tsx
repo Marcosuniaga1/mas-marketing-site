@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { ArrowUpRight, ChevronDown, AudioLines, FileText, Clapperboard, GraduationCap, Megaphone, CheckCircle2 } from "lucide-react";
-import { Nav } from "@/components/nav";
-import { Footer } from "@/components/sections";
-import { WhatsAppFloat } from "@/components/whatsapp-float";
+import { LegalFooter } from "@/components/legal-footer";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { VideoConSonido } from "@/components/video-con-sonido";
 import { TrackedLink } from "@/app/ig/tracked-link";
@@ -58,10 +56,9 @@ export default function TuCursoConTuVoz() {
   return (
     <>
       <BreadcrumbJsonLd pageName="Tu curso, con tu voz" pageUrl="/tu-curso-con-tu-voz" />
-      <Nav />
       <main className="relative">
         {/* ------------------------- HERO + VIDEO ------------------------- */}
-        <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-24 hero-bg overflow-hidden">
+        <section className="relative pt-10 pb-20 sm:pt-14 sm:pb-24 hero-bg overflow-hidden">
           <div className="absolute inset-0 bg-grid opacity-60 pointer-events-none" />
           <div className="relative mx-auto max-w-5xl px-5 sm:px-8 text-center">
             <p className="reveal text-xs uppercase tracking-[0.25em] text-[var(--gold)]">Tu curso, con tu voz · Done for You</p>
@@ -164,8 +161,7 @@ export default function TuCursoConTuVoz() {
           </div>
         </section>
       </main>
-      <Footer />
-      <WhatsAppFloat />
+      <LegalFooter />
     </>
   );
 }
