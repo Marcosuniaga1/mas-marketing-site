@@ -29,16 +29,20 @@ export default function CursoConTuVoz() {
     <div className="flex min-h-screen flex-col hero-bg">
       <main className="relative flex-1 overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-50 pointer-events-none" />
-        <section className="relative mx-auto max-w-5xl px-5 pt-12 pb-16 text-center sm:px-8 sm:pt-16">
+        <section className="relative mx-auto max-w-6xl px-5 pt-8 pb-14 text-center sm:px-8 sm:pt-10">
           <p className="reveal text-xs uppercase tracking-[0.25em] text-[var(--gold)]">Tu curso, con tu voz · Done for You</p>
-          <h1 className="reveal mt-5 font-[var(--font-sora)] text-4xl font-bold leading-[1.05] tracking-[-0.03em] text-white sm:text-6xl">
+          <h1 className="reveal mt-4 font-[var(--font-sora)] text-4xl font-bold leading-[1.05] tracking-[-0.03em] text-white sm:text-5xl">
             Tu curso vendiendo. <span className="text-gold-gradient">Tu energía, para tu vida.</span>
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-[var(--muted-foreground)]">
+          <p className="mx-auto mt-3 max-w-2xl text-lg leading-relaxed text-[var(--muted-foreground)]">
             Mira el video de 2 minutos. Te cuento cómo construimos tu curso por ti.
           </p>
 
-          <div className="mt-10">
+          <div
+            className="mx-auto mt-6"
+            // El video se ajusta al alto de la pantalla para que título, video y botón quepan sin hacer scroll.
+            style={{ maxWidth: "min(100%, 60rem, calc((100svh - 350px) * 16 / 9))" }}
+          >
             <VideoConSonido
               src="/videos/tu-curso-con-tu-voz.mp4"
               poster="/videos/tu-curso-con-tu-voz-poster.jpg"
@@ -46,8 +50,8 @@ export default function CursoConTuVoz() {
             />
           </div>
 
-          <div className="mt-6 flex flex-col items-center gap-3">
-            <ChevronDown className="baja-flecha h-8 w-8 text-[var(--gold)]" aria-hidden="true" />
+          <div className="mt-3 flex flex-col items-center gap-2">
+            <ChevronDown className="baja-flecha h-7 w-7 text-[var(--gold)]" aria-hidden="true" />
             <TrackedLink
               href={AGENDA_URL}
               event="dfy_min_click_agenda"
