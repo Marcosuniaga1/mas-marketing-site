@@ -255,18 +255,18 @@ function HeroVisual() {
             </div>
           </div>
 
-          <ol className="flex flex-1 flex-col justify-between gap-3">
+          <ol className="flex flex-1 flex-col gap-3">
             {HERO_STEPS.map((s) => (
               <li
                 key={s.step}
-                className="flex items-start gap-3 rounded-xl border border-[var(--border)] bg-black/30 p-3 sm:p-4"
+                className="flex flex-1 items-center gap-4 rounded-xl border border-[var(--border)] bg-black/30 p-3 sm:p-4"
               >
-                <span className="font-[var(--font-sora)] text-sm font-bold text-[var(--gold)]">
+                <span className="font-[var(--font-sora)] text-2xl font-bold text-[var(--gold)]">
                   {s.step}
                 </span>
                 <div>
-                  <div className="text-sm font-semibold text-white">{s.title}</div>
-                  <div className="mt-0.5 text-[11px] text-[var(--muted-foreground)] leading-snug">
+                  <div className="text-base font-semibold text-white">{s.title}</div>
+                  <div className="mt-1 text-xs text-[var(--muted-foreground)] leading-snug">
                     {s.desc}
                   </div>
                 </div>
