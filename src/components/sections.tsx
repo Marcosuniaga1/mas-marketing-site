@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, type FormEvent } from "react";
-import Image from "next/image";
+import NextImage from "next/image";
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import {
@@ -16,7 +16,6 @@ import {
   Sparkles,
   MessageCircle,
   ArrowRight,
-  Star,
   Plus,
   Minus,
   Phone,
@@ -39,6 +38,7 @@ import {
 } from "@/lib/utils";
 import { InstagramIcon } from "./icons";
 import { NeuralBg } from "./neural-bg";
+import Image from "next/image";
 import { ScrollReveal } from "./scroll-reveal";
 
 /* -------------------------------------------------------------------------- */
@@ -186,8 +186,7 @@ export function Hero() {
 
 function HeroMetrics() {
   const { ref, inView } = useInView(0.5);
-  const projects = useCounter(50, 1500, inView);
-  const roas = useCounter(48, 1500, inView);
+  const firstVersion = useCounter(7, 1200, inView);
   const daysLow = useCounter(7, 1200, inView);
   const daysHigh = useCounter(21, 1500, inView);
 
@@ -199,18 +198,10 @@ function HeroMetrics() {
     >
       <div>
         <div className="font-[var(--font-sora)] text-2xl sm:text-3xl font-bold text-white">
-          +{projects}
+          {firstVersion}d
         </div>
         <div className="mt-1 text-xs sm:text-sm text-[var(--subtle-foreground)] leading-tight">
-          Proyectos entregados
-        </div>
-      </div>
-      <div>
-        <div className="font-[var(--font-sora)] text-2xl sm:text-3xl font-bold text-white">
-          {(roas / 10).toFixed(1)}×
-        </div>
-        <div className="mt-1 text-xs sm:text-sm text-[var(--subtle-foreground)] leading-tight">
-          ROAS promedio
+          Primera versión
         </div>
       </div>
       <div>
@@ -221,17 +212,30 @@ function HeroMetrics() {
           Tiempo de entrega
         </div>
       </div>
+      <div>
+        <div className="font-[var(--font-sora)] text-2xl sm:text-3xl font-bold text-white">
+          Hoy
+        </div>
+        <div className="mt-1 text-xs sm:text-sm text-[var(--subtle-foreground)] leading-tight">
+          Respondemos el mismo día
+        </div>
+      </div>
     </div>
   );
 }
 
+const HERO_STEPS = [
+  { step: "01", title: "Auditoría gratuita", desc: "Revisamos cómo te ven hoy tus clientes online." },
+  { step: "02", title: "Página web que vende", desc: "Rápida, con SEO técnico y pensada para convertir." },
+  { step: "03", title: "Campañas digitales", desc: "Meta Ads y Google Ads con segmentación clara." },
+  { step: "04", title: "Medición semanal", desc: "Leads, ventas y retorno por canal, sin rodeos." },
+];
+
 function HeroVisual() {
   return (
     <div className="relative aspect-[4/5] w-full">
-      {/* Back card (metrics) */}
       <div className="absolute inset-0 translate-x-6 translate-y-6 rounded-2xl border border-[var(--border-strong)] bg-[var(--card)]/70 backdrop-blur-sm" />
 
-      {/* Front card (browser mock) */}
       <div className="absolute inset-0 rounded-2xl border border-[var(--border-strong)] bg-gradient-to-br from-[#111a35] to-[#080E24] overflow-hidden shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)]">
         <div className="flex items-center gap-1.5 px-4 py-3 border-b border-[var(--border)]">
           <span className="h-2.5 w-2.5 rounded-full bg-[#3a3a3a]" />
@@ -241,42 +245,37 @@ function HeroVisual() {
             masmarketingagency.com
           </span>
         </div>
-        <div className="p-5 sm:p-6 flex flex-col gap-5">
+        <div className="p-5 sm:p-6 flex flex-col gap-4">
           <div>
             <div className="text-[10px] uppercase tracking-[0.18em] text-[var(--gold)]">
-              Dashboard live
+              Tu plan de crecimiento
             </div>
             <div className="mt-1 text-sm font-semibold text-white">
-              Campaña abril — Ads + Landing
+              Web + campañas desde el día uno
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
-            <MiniStat label="Conversiones" value="1,284" trend="+38%" />
-            <MiniStat label="ROAS" value="6.2×" trend="+1.4" />
-            <MiniStat label="CPL" value="$1.42" trend="-22%" negative />
-            <MiniStat label="CTR" value="4.8%" trend="+0.7" />
-          </div>
-
-          <div className="rounded-xl border border-[var(--border)] bg-black/40 p-4">
-            <div className="flex items-center justify-between text-[11px] text-[var(--muted-foreground)]">
-              <span>Ingresos generados</span>
-              <span className="text-[var(--gold)] font-semibold">+$18,420</span>
-            </div>
-            <div className="mt-3 flex items-end gap-1 h-14">
-              {[28, 36, 32, 44, 58, 52, 68, 74, 82, 72, 92, 100].map((h, i) => (
-                <div
-                  key={i}
-                  className="flex-1 rounded-sm bg-gradient-to-t from-[var(--gold-deep)] via-[var(--gold)] to-[var(--gold-bright)] opacity-90"
-                  style={{ height: `${h}%` }}
-                />
-              ))}
-            </div>
-          </div>
+          <ol className="flex flex-col gap-3">
+            {HERO_STEPS.map((s) => (
+              <li
+                key={s.step}
+                className="flex items-start gap-3 rounded-xl border border-[var(--border)] bg-black/30 p-3"
+              >
+                <span className="font-[var(--font-sora)] text-sm font-bold text-[var(--gold)]">
+                  {s.step}
+                </span>
+                <div>
+                  <div className="text-sm font-semibold text-white">{s.title}</div>
+                  <div className="mt-0.5 text-[11px] text-[var(--muted-foreground)] leading-snug">
+                    {s.desc}
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
 
-      {/* Floating badge */}
       <div className="absolute -left-4 sm:-left-6 top-10 rounded-xl border border-[var(--border-strong)] bg-[#0a1128] px-3.5 py-2.5 shadow-[0_12px_30px_-10px_rgba(0,0,0,0.8)]">
         <div className="flex items-center gap-2">
           <div className="grid h-7 w-7 place-items-center rounded-full bg-[var(--gold-soft)] text-[var(--gold)]">
@@ -284,45 +283,13 @@ function HeroVisual() {
           </div>
           <div>
             <div className="text-[10px] text-[var(--subtle-foreground)] uppercase tracking-wide">
-              Nueva conversión
+              Auditoría gratis
             </div>
             <div className="text-xs text-white font-medium">
-              Lead + $240 ticket
+              30 min · por WhatsApp
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  );
-}
-
-function MiniStat({
-  label,
-  value,
-  trend,
-  negative,
-}: {
-  label: string;
-  value: string;
-  trend: string;
-  negative?: boolean;
-}) {
-  return (
-    <div className="rounded-xl border border-[var(--border)] bg-black/30 p-3">
-      <div className="text-[10px] text-[var(--subtle-foreground)] uppercase tracking-wide">
-        {label}
-      </div>
-      <div className="mt-1 flex items-baseline gap-2">
-        <span className="text-lg font-[var(--font-sora)] font-bold text-white">
-          {value}
-        </span>
-        <span
-          className={`text-[10px] font-medium ${
-            negative ? "text-[#5fd28b]" : "text-[var(--gold)]"
-          }`}
-        >
-          {trend}
-        </span>
       </div>
     </div>
   );
@@ -933,131 +900,31 @@ export function Process() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                   Cases                                    */
-/* -------------------------------------------------------------------------- */
-
-const CASES = [
-  {
-    client: "Clínica estética Vitae",
-    industry: "Salud & bienestar",
-    result: "+320%",
-    metric: "leads mensuales",
-    desc: "Rediseño completo de la web + campañas de Meta Ads segmentadas. Dupliamos las citas en 90 días.",
-    tag: "Web · Ads · SEO",
-  },
-  {
-    client: "NOVA coffee",
-    industry: "Alimentos & bebidas",
-    result: "4.8×",
-    metric: "ROAS promedio",
-    desc: "Identidad, web y gestión de redes. De una cafetería local a una marca con fila los fines de semana.",
-    tag: "Branding · Social",
-  },
-  {
-    client: "Arum tienda",
-    industry: "E-commerce de moda",
-    result: "$28K",
-    metric: "facturación mensual",
-    desc: "E-commerce en Shopify + email marketing + creativos. De cero a primeros seis meses rentables.",
-    tag: "E-commerce · Email",
-  },
-];
-
-export function Cases() {
-  return (
-    <section
-      id="casos"
-      className="relative py-24 sm:py-32 border-b border-[var(--border)] bg-[var(--surface)]"
-    >
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div>
-            <p className="text-xs uppercase tracking-[0.25em] text-[var(--gold)]">
-              Casos reales
-            </p>
-            <h2 className="mt-4 font-[var(--font-sora)] text-4xl sm:text-5xl font-bold text-white tracking-tight leading-[1.02]">
-              Clientes que pasaron de{" "}
-              <span className="italic font-light">dudar</span> a facturar.
-            </h2>
-          </div>
-          <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-white link-animated"
-          >
-            Más casos en Instagram
-            <InstagramIcon className="h-4 w-4" />
-          </a>
-        </div>
-
-        <ScrollReveal className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
-          {CASES.map((c, i) => (
-            <article
-              key={c.client}
-              className="group rounded-2xl border border-[var(--border)] bg-[var(--card)] overflow-hidden hover:border-[var(--gold)]/40 transition-all"
-            >
-              <div
-                className="relative h-48 bg-gradient-to-br from-[#111a35] via-[#0a1128] to-[#080E24] overflow-hidden"
-                aria-hidden="true"
-              >
-                <div className="absolute inset-0 bg-grid opacity-50" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-[var(--font-sora)] text-5xl font-bold text-gold-gradient">
-                    {c.result}
-                  </span>
-                </div>
-                <span className="absolute bottom-3 left-4 text-[11px] text-[var(--subtle-foreground)]">
-                  {c.metric}
-                </span>
-                <span className="absolute top-3 right-3 text-[10px] font-mono text-[var(--subtle-foreground)]">
-                  #{String(i + 1).padStart(2, "0")}
-                </span>
-              </div>
-              <div className="p-6">
-                <p className="text-xs text-[var(--subtle-foreground)]">
-                  {c.industry}
-                </p>
-                <h3 className="mt-1 font-[var(--font-sora)] text-lg font-semibold text-white">
-                  {c.client}
-                </h3>
-                <p className="mt-3 text-sm text-[var(--muted-foreground)] leading-relaxed">
-                  {c.desc}
-                </p>
-                <p className="mt-4 text-[11px] uppercase tracking-widest text-[var(--gold)]">
-                  {c.tag}
-                </p>
-              </div>
-            </article>
-          ))}
-        </ScrollReveal>
-      </div>
-    </section>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
 /*                                Testimonials                                */
 /* -------------------------------------------------------------------------- */
 
+// Testimonios reales (extractos). Versión completa en /testimonios.
 const TESTIMONIALS = [
   {
     quote:
-      "Pasamos de querer una página bonita a tener un motor de ventas real. En dos meses doblamos las citas mensuales.",
-    name: "Ana Villareal",
-    role: "Dueña · Clínica Vitae",
+      "Yo no sabía cómo hacer para lanzar mis productos o cursos, él me dio una estrategia que va desde un Low Ticket hasta un High Ticket… Lo bueno es que se encargan de todo.",
+    name: "Mariale Velazco",
+    role: "Mentora de mujeres emprendedoras",
+    photo: "/testimonios/mariale.jpg",
   },
   {
     quote:
-      "El equipo entiende de números, no solo de diseño. Por primera vez veo claramente cuánto me cuesta traer un cliente y cuánto vale.",
-    name: "Jorge Pérez",
-    role: "Gerente · Arum Tienda",
+      "Trabajar con Marco Suniaga, su agencia y el programa Emprendedores 360 ha marcado un antes y un después en la estrategia de mi negocio.",
+    name: "Sulma Marte",
+    role: "Asesora Redes Sociales · Social Media y Community Manager",
+    photo: "/testimonios/sulma.jpg",
   },
   {
     quote:
-      "Llevo cuatro campañas con ellos. Siempre cumplen los plazos y siempre nos sorprenden con algo creativo que funciona.",
-    name: "Marcela Rivas",
-    role: "Dirección · NOVA coffee",
+      "Marco Suniaga me ayudó a aterrizar cada idea y convertirla en productos y servicios claros, con una estrategia bien definida.",
+    name: "Yasmín Perdomo",
+    role: "Speaker, Mentora de empresarias",
+    photo: "/testimonios/yasmin.jpg",
   },
 ];
 
@@ -1085,26 +952,37 @@ export function Testimonials() {
               key={t.name}
               className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-7 flex flex-col"
             >
-              <div
-                className="flex gap-0.5 text-[var(--gold)]"
-                aria-label="5 estrellas"
-              >
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-current" />
-                ))}
-              </div>
-              <blockquote className="mt-5 text-white leading-relaxed flex-1">
+              <blockquote className="text-white leading-relaxed flex-1">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
-              <figcaption className="mt-6 pt-5 border-t border-[var(--border)]">
-                <div className="font-semibold text-white">{t.name}</div>
-                <div className="text-sm text-[var(--muted-foreground)]">
-                  {t.role}
+              <figcaption className="mt-6 pt-5 border-t border-[var(--border)] flex items-center gap-3">
+                <NextImage
+                  src={t.photo}
+                  alt={t.name}
+                  width={44}
+                  height={44}
+                  className="h-11 w-11 rounded-full object-cover border border-[var(--border-strong)]"
+                />
+                <div>
+                  <div className="font-semibold text-white">{t.name}</div>
+                  <div className="text-sm text-[var(--muted-foreground)]">
+                    {t.role}
+                  </div>
                 </div>
               </figcaption>
             </figure>
           ))}
         </ScrollReveal>
+
+        <div className="mt-10 text-center">
+          <a
+            href="/testimonios"
+            className="inline-flex items-center gap-2 text-sm text-white link-animated"
+          >
+            Ver testimonios completos
+            <ArrowRight className="h-4 w-4" />
+          </a>
+        </div>
       </div>
     </section>
   );

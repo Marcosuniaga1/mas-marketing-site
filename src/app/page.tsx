@@ -6,7 +6,6 @@ import {
   AuditLocal,
   Benefits,
   Process,
-  Cases,
   Testimonials,
   FAQ,
   Contact,
@@ -24,7 +23,6 @@ export default function Home() {
         <AuditLocal />
         <Benefits />
         <Process />
-        <Cases />
         <Testimonials />
         <FAQ />
         <Contact />
