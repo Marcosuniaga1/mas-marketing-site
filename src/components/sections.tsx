@@ -245,7 +245,7 @@ function HeroVisual() {
             masmarketingagency.com
           </span>
         </div>
-        <div className="p-5 sm:p-6 flex flex-col gap-4">
+        <div className="p-5 sm:p-6 flex flex-col gap-4 h-[calc(100%-41px)]">
           <div>
             <div className="text-[10px] uppercase tracking-[0.18em] text-[var(--gold)]">
               Tu plan de crecimiento
@@ -255,11 +255,11 @@ function HeroVisual() {
             </div>
           </div>
 
-          <ol className="flex flex-col gap-3">
+          <ol className="flex flex-1 flex-col justify-between gap-3">
             {HERO_STEPS.map((s) => (
               <li
                 key={s.step}
-                className="flex items-start gap-3 rounded-xl border border-[var(--border)] bg-black/30 p-3"
+                className="flex items-start gap-3 rounded-xl border border-[var(--border)] bg-black/30 p-3 sm:p-4"
               >
                 <span className="font-[var(--font-sora)] text-sm font-bold text-[var(--gold)]">
                   {s.step}
@@ -273,24 +273,20 @@ function HeroVisual() {
               </li>
             ))}
           </ol>
+
+          <a
+            href="/auditoria-gratuita"
+            className="flex items-center justify-between gap-3 rounded-xl border border-[var(--gold)]/40 bg-[var(--gold-soft)] p-3.5 hover:border-[var(--gold)] transition-all"
+          >
+            <span className="flex items-center gap-2 text-sm font-semibold text-white">
+              <Sparkles className="h-4 w-4 text-[var(--gold)]" />
+              Empieza con tu auditoría gratis
+            </span>
+            <ArrowRight className="h-4 w-4 text-[var(--gold)]" />
+          </a>
         </div>
       </div>
 
-      <div className="absolute -left-4 sm:-left-6 top-10 rounded-xl border border-[var(--border-strong)] bg-[#0a1128] px-3.5 py-2.5 shadow-[0_12px_30px_-10px_rgba(0,0,0,0.8)]">
-        <div className="flex items-center gap-2">
-          <div className="grid h-7 w-7 place-items-center rounded-full bg-[var(--gold-soft)] text-[var(--gold)]">
-            <Sparkles className="h-3.5 w-3.5" />
-          </div>
-          <div>
-            <div className="text-[10px] text-[var(--subtle-foreground)] uppercase tracking-wide">
-              Auditoría gratis
-            </div>
-            <div className="text-xs text-white font-medium">
-              30 min · por WhatsApp
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
