@@ -10,6 +10,13 @@ const nextConfig: NextConfig = {
       destination: "/propuestas/:slug.html",
     },
   ],
+  // Propuestas: accesibles por enlace directo, pero ocultas para buscadores.
+  headers: async () => [
+    {
+      source: "/propuestas/:path*",
+      headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+    },
+  ],
   redirects: async () => [
     {
       source: "/casos",
