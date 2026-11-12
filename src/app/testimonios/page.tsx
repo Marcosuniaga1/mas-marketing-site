@@ -66,20 +66,6 @@ const jsonLd = {
   "@type": "Organization",
   name: "MAS Marketing Agency",
   url: "https://masmarketingagency.com",
-  review: TESTIMONIALS.map((t) => ({
-    "@type": "Review",
-    author: { "@type": "Person", name: t.name },
-    reviewBody: t.quote,
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: "5",
-      bestRating: "5",
-    },
-    itemReviewed: {
-      "@type": "Organization",
-      name: "MAS Marketing Agency",
-    },
-  })),
 };
 
 export default function Testimonios() {
