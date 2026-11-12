@@ -2,7 +2,6 @@ import { Nav } from "@/components/nav";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import {
   Hero,
-  TrustStrip,
   Services,
   AuditLocal,
   Benefits,
@@ -21,7 +20,6 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <TrustStrip />
         <Services />
         <AuditLocal />
         <Benefits />
@@ -70,12 +68,6 @@ export default function Home() {
             ],
             areaServed: ["VE", "CO", "MX", "US", "ES", "PA"],
             priceRange: "$$",
-            aggregateRating: {
-              "@type": "AggregateRating",
-              ratingValue: "5",
-              reviewCount: "3",
-              bestRating: "5",
-            },
             serviceType: [
               "Web Design",
               "Digital Marketing",

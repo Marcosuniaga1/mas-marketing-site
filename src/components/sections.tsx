@@ -329,59 +329,6 @@ function MiniStat({
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                Trust Strip                                 */
-/* -------------------------------------------------------------------------- */
-
-const LOGOS = [
-  "Delta Studio",
-  "Cromo.",
-  "NOVA coffee",
-  "Vértice",
-  "Arum",
-  "Pulse Media",
-  "Koda",
-  "Latitud 7",
-  "Mantra",
-  "Solaris",
-];
-
-export function TrustStrip() {
-  return (
-    <section
-      aria-label="Marcas que confían en nosotros"
-      className="relative border-y border-[var(--border)] bg-[var(--surface)] py-10"
-    >
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <p className="text-center text-xs uppercase tracking-[0.25em] text-[var(--subtle-foreground)]">
-          Equipos y marcas que han crecido con nosotros
-        </p>
-      </div>
-
-      <div className="mt-6 overflow-hidden relative">
-        <div
-          className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[var(--surface)] to-transparent z-10"
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[var(--surface)] to-transparent z-10"
-          aria-hidden="true"
-        />
-        <div className="marquee-track flex gap-12 sm:gap-16 whitespace-nowrap">
-          {[...LOGOS, ...LOGOS].map((logo, i) => (
-            <span
-              key={i}
-              className="font-[var(--font-sora)] text-xl sm:text-2xl font-semibold text-[var(--muted-foreground)]/60 tracking-tight shrink-0"
-            >
-              {logo}
-            </span>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
 /*                                  Services                                  */
 /* -------------------------------------------------------------------------- */
 
